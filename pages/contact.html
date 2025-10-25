@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Marblex - Diagonal Hero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+    --dark-bg: #323740; /* Dark background color (Nav, Overlay) */
+    --hover-color: #d8a55e; /* Gold/Tan accent color */
+    --link-color: #f1f1f1; /* White/Light text color */
+    --transition-speed: 0.7s;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    background-color: white; 
+    padding-top: 80px; /* Space for the fixed navbar */
+}
+
+/* ========================= NAV BAR STYLES ========================= */
+.main-header {
+    background-color: var(--dark-bg);
+    z-index: 1000;
+    padding: 10px 0;
+}
+.navbar-brand.logo {
+    display: flex;
+    align-items: center;
+    color: var(--link-color) !important;
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Logo Icon (Recreation of the stacked squares from image_662586.png) */
+.logo-icon {
+    position: relative;
+    width: 30px; 
+    height: 30px;
+    margin-right: 10px;
+}
+.logo-icon::before,
+.logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--hover-color);
+}
+.logo-icon::before { top: 0; left: 0; }
+.logo-icon::after { top: 5px; left: 5px; }
+
+/* Navbar Links and Dropdowns */
+.navbar-nav .nav-link {
+    color: var(--link-color) !important;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 15px 12px;
+}
+.navbar-nav .nav-link:hover { color: var(--hover-color) !important; }
+
+.dropdown-menu { background-color: var(--dark-bg); border: none; }
+.dropdown-item { color: var(--link-color); padding: 10px 20px; }
+.dropdown-item:hover, .dropdown-item.active-dropdown-item {
+    background-color: var(--hover-color);
+    color: var(--dark-bg);
+}
+
+.cta-button { 
+    background-color: var(--hover-color) !important; 
+    color: var(--dark-bg) !important;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 0;
+}
+
+
+/* ========================= HERO SECTION STYLES (DIAGONAL FIX) ========================= */
+
+.hero-section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* This background is the dark overlay for the left text area */
+    background-color: var(--dark-bg); 
+    padding: 0; 
+    margin-top: -80px; /* Offset body padding to make hero full screen below nav */
+}
+
+/* --- 1. FIXED Background Image (KEY FIX) --- */
+.hero-background-image {
+    position: fixed; /* Keep the large background fixed during scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.full-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Diagonal reveal clip path (from images_5b409b.jpg, 653d63.jpg) */
+    /* This creates the large diagonal split effect */
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 0.8; 
+}
+
+/* Ensure content and navbar stay on top */
+.hero-content-wrapper {
+    position: relative;
+    z-index: 10; 
+    height: 100vh;
+    padding-top: 80px; /* Push content down past the fixed navbar */
+}
+
+/* --- Left Content (Text) --- */
+.hero-left-content {
+    color: var(--link-color);
+}
+.hero-welcome-text { /* Gold line and text style */
+    color: var(--hover-color);
+    position: relative;
+    padding-left: 50px;
+}
+.hero-welcome-text::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--hover-color);
+}
+.hero-title {
+    font-size: 50px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+.hero-readmore-button {
+    background-color: var(--hover-color) !important;
+    color: var(--dark-bg) !important;
+    padding: 15px 35px;
+    font-weight: bold;
+    border-radius: 0;
+}
+
+/* --- Right Visuals (Layered Images - Slider) --- */
+.hero-right-visuals {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 600px; 
+    pointer-events: none;
+}
+.image-layers-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.layered-image {
+    position: absolute;
+    /* Position the images visually in the diagonal empty space */
+    top: 50%;
+    left: 50%; 
+    width: 400px;
+    height: 600px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease; 
+    pointer-events: none;
+}
+.layered-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Diagonal clip-path for the layered images */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+}
+.layered-image.active-image {
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+}
+.slider-nav-dots {
+    position: absolute;
+    bottom: 0px;
+    right: 150px; /* Position dots near the image group */
+    z-index: 15;
+    display: flex;
+    gap: 10px;
+}
+.dot { 
+    width: 15px; 
+    height: 3px; 
+    background-color: rgba(255, 255, 255, 0.4); 
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+.dot.active { 
+    background-color: var(--hover-color); 
+    width: 30px; 
+}
+
+@media (max-width: 992px) {
+    /* Disable diagonal/fixed effects on small screens */
+    .hero-section { min-height: 80vh; margin-top: 0; }
+    .hero-background-image { position: absolute; }
+    .full-bg-image { clip-path: none; opacity: 1; }
+    .hero-right-visuals { display: none; }
+    .hero-content-wrapper { height: auto; padding-top: 0; }
+    .hero-title { font-size: 40px; }
+}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top main-header">
+        <div class="container-fluid container-xl">
+            <a class="navbar-brand logo" href="#">
+                <div class="logo-icon"></div>
+                Marbtex
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            HOME
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                            <li><a class="dropdown-item" href="#">Main Home</a></li>
+                            <li class="dropdown-item active-dropdown-item">Home 2</li>
+                            <li><a class="dropdown-item" href="#">Home 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PAGES</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PORTFOLIO</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">BLOG</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
+                </ul>
+                <a href="#contact" class="cta-button btn ms-lg-3">
+                    GET QUOTE HERE <span class="arrow-right">→</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section full-fixed-bg d-flex align-items-center">
+        
+        <div class="hero-background-image">
+            <img 
+                src="https://via.placeholder.com/1920x1080/444444/999999?text=Main+Marble+Background" 
+                alt="Full background marble"
+                class="full-bg-image"
+            >
+        </div>
+
+        <div class="container-xl hero-content-wrapper">
+            <div class="row w-100 align-items-center">
+                
+                <div class="col-lg-6 hero-left-content">
+                    <p class="hero-welcome-text">WELCOME TO DIGITAL MARBLEX</p>
+                    <h1 class="hero-title">Best Stone Suppliers <br> Tiles Slabs Pavers</h1>
+                    <a href="#about" class="hero-readmore-button btn">
+                        READ MORE <span class="arrow-right">→</span>
+                    </a>
+                </div>
+
+                <div class="col-lg-6 hero-right-visuals">
+                    <div class="image-layers-container">
+                        <div class="layered-image active-image" data-slide-index="0">
+                            <img src="https://via.placeholder.com/400x600/e0e0e0/333333?text=Bathroom+Interior" alt="Bathroom Interior">
+                        </div>
+                        <div class="layered-image" data-slide-index="1">
+                            <img src="https://via.placeholder.com/400x600/d0d0d0/333333?text=Kitchen+Counter" alt="Kitchen Counter">
+                        </div>
+                        <div class="layered-image" data-slide-index="2">
+                            <img src="https://via.placeholder.com/400x600/c0c0c0/333333?text=Marble+Slabs" alt="Marble Slabs">
+                        </div>
+                    </div>
+                    
+                    <div class="slider-nav-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+    const dots = document.querySelectorAll('.slider-nav-dots .dot');
+    const layers = document.querySelectorAll('.layered-image');
+    let currentSlide = 0;
+    let slideInterval;
+    const slideDuration = 5000; // 5 seconds auto-slide
+
+    function updateSlider(index) {
+        currentSlide = index % layers.length;
+
+        // 1. Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+
+        // 2. Update image layers (manage opacity, zIndex, and transform)
+        layers.forEach((layer, i) => {
+            layer.classList.remove('active-image');
+            layer.style.opacity = '0';
+            layer.style.zIndex = '1';
+            // Base inactive position/scale
+            layer.style.transform = 'translate(-50%, -50%) translateX(250px) translateY(-50px) scale(0.7)';
+        });
+
+        // Set the active image (main, full-size)
+        const activeLayer = layers[currentSlide];
+        activeLayer.classList.add('active-image');
+        activeLayer.style.opacity = '1';
+        activeLayer.style.zIndex = '3';
+        // Active position transform (Center of the visual group)
+        activeLayer.style.transform = 'translate(-50%, -50%) translateX(250px) translateY(-50px) scale(1)';
+
+        // Set the two trailing images for the layered effect 
+        const positions = [
+            // Trailing image 1 (closer, higher opacity)
+            { opacity: 0.6, zIndex: 2, transform: 'translate(-50%, -50%) translateX(400px) translateY(-20px) scale(0.8)' },
+            // Trailing image 2 (further back, lower opacity)
+            { opacity: 0.4, zIndex: 1, transform: 'translate(-50%, -50%) translateX(500px) translateY(10px) scale(0.6)' }
+        ];
+
+        for (let j = 0; j < 2; j++) {
+            const layerIndex = (currentSlide + j + 1) % layers.length;
+            const trailingLayer = layers[layerIndex];
+            if (trailingLayer) {
+                trailingLayer.style.opacity = positions[j].opacity;
+                trailingLayer.style.zIndex = positions[j].zIndex;
+                trailingLayer.style.transform = positions[j].transform;
+            }
+        }
+    }
+
+    function startSlider() {
+        slideInterval = setInterval(() => {
+            const nextSlide = (currentSlide + 1) % layers.length;
+            updateSlider(nextSlide);
+        }, slideDuration);
+    }
+
+    function resetSliderInterval() {
+        clearInterval(slideInterval);
+        startSlider();
+    }
+
+    // Initialize slider on load
+    updateSlider(currentSlide);
+    startSlider();
+
+    // Handle dot clicks
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const targetSlide = parseInt(this.dataset.slide);
+            updateSlider(targetSlide);
+            resetSliderInterval(); // Reset interval on manual click
+        });
+    });
+});
+    </script>
+</body>
+</html>

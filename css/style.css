@@ -1,0 +1,1322 @@
+/* --- Original Desktop Styles (General Styles) --- */
+
+:root {
+    --dark-bg: #2f333a;
+    --link-color: #f1f1f1;
+    --hover-color: #d8a55e;
+    --text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark-bg);
+    padding: 15px 50px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    /* Needed for absolute positioning of mobile menu */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--link-color);
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.logo-icon {
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--hover-color);
+    position: relative;
+    margin-right: 10px;
+}
+
+/* Hide the toggle button on desktop */
+.menu-toggle {
+    display: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--link-color) !important;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 0;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover .nav-link {
+    color: var(--hover-color);
+    text-shadow: var(--text-shadow);
+}
+
+.arrow {
+    font-size: 8px;
+    line-height: 1;
+    margin-left: 5px;
+    position: relative;
+    top: -2px;
+}
+
+/* Dropdown Menu Styling (Desktop) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--link-color);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    text-transform: none;
+}
+
+.dropdown-menu li a {
+    color: var(--dark-bg);
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.dropdown-menu li:hover,
+.dropdown-menu li.active {
+    background-color: var(--hover-color);
+}
+
+.dropdown-menu li:hover a,
+.dropdown-menu li.active a {
+    color: var(--link-color);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.cta-button {
+    background-color: var(--hover-color);
+    color: var(--dark-bg);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+    /* Prevent wrapping in the button */
+}
+
+.cta-button:hover {
+    background-color: #e5b67a;
+    color: var(--dark-bg);
+}
+
+.arrow-right {
+    font-size: 18px;
+    margin-left: 10px;
+    position: relative;
+    top: 1px;
+}
+
+
+/* --- Mobile Responsiveness (Media Query) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        /* Allow items to wrap */
+    }
+
+    /* Show the hamburger icon */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--link-color);
+        font-size: 28px;
+        cursor: pointer;
+        padding: 5px;
+        order: 2;
+        /* Place toggle after logo */
+    }
+
+    /* Position the CTA button next to the logo/toggle on mobile */
+    .cta-button {
+        padding: 10px 15px;
+        font-size: 12px;
+        order: 3;
+        /* Position on the right */
+    }
+
+    /* --- Menu Container Styling (Mobile) --- */
+    .nav-links {
+        width: 100%;
+        /* Take full width */
+        flex-direction: column;
+        /* Stack links vertically */
+        background-color: #24272c;
+        /* Slightly darker background for contrast */
+        max-height: 0;
+        /* Initially hidden */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        order: 4;
+        /* Place below logo and button */
+    }
+
+    /* Class added by JavaScript when the menu is open */
+    .nav-links.active {
+        max-height: 500px;
+        /* Adjust based on content height, makes it appear */
+        padding-bottom: 10px;
+    }
+
+    .nav-item {
+        margin: 0;
+        /* Remove horizontal margin */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        padding: 12px 20px;
+        /* Increase vertical padding for taps */
+    }
+
+    /* --- Dropdown Menu Styling (Mobile) --- */
+    .dropdown-menu {
+        position: static;
+        /* Stack dropdown items inside the main list */
+        box-shadow: none;
+        min-width: 100%;
+        background-color: #1a1c20;
+        /* Darker background for nested links */
+        padding: 0;
+        /* The mobile dropdowns should not show on hover, but click/tap */
+        display: none;
+    }
+
+    /* For mobile, we'll make the dropdown open/close on click/tap, 
+       but for simplicity in this code, we'll remove the hover effect 
+       and leave the links flat for now. */
+    .dropdown:hover .dropdown-menu {
+        display: none;
+        /* Disable desktop hover behavior */
+    }
+}
+
+
+/* --- Hero Section Layout (Desktop) --- */
+.hero-section.hero-style-1 {
+    display: flex;
+    min-height: 90vh;
+    background-color: var(--dark-bg);
+    position: relative;
+    overflow: hidden;
+    color: var(--light-text);
+    font-family: var(--font-primary);
+}
+
+.hero-left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5%;
+    max-width: 50%;
+    /* Constrain width for a clean split */
+    z-index: 2;
+}
+
+/* --- Content & Button Styling (Same as previous, using entrance animation) --- */
+.hero-welcome-text {
+    color: var(--gold-accent);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease-out 0.3s forwards;
+    padding-left: 50px;
+    position: relative;
+}
+
+.hero-welcome-text::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold-accent);
+}
+
+.hero-title {
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease-out 0.5s forwards;
+}
+
+.hero-readmore-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--gold-accent);
+    color: var(--dark-bg);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 35px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease-out 0.7s forwards;
+    align-self: flex-start;
+}
+
+.hero-readmore-button:hover {
+    background-color: #e5b67a;
+}
+
+.hero-readmore-button .arrow-right {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+
+/* --- Hero Right Visuals (The complex part) --- */
+.hero-right-visuals {
+    flex: 1;
+    position: relative;
+    overflow: visible;
+    /* Must be visible to show layered images outside boundaries */
+
+}
+
+/* The main visual area container */
+.image-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.slider-track {
+    display: flex;
+    width: 200%;
+    /* For 2 slides */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    width: 50%;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Diagonal Overlay (THE CUT) --- */
+.hero-diagonal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-bg);
+    /* Match the left section's color */
+    z-index: 5;
+    /* This sits above the main image but below the layered images */
+
+    /* Creates the large diagonal cut revealing the main image underneath */
+    clip-path: polygon(0 0, 30% 0, 70% 100%, 0 100%);
+    /* Animation: Subtle scroll/entrance effect on the cut element */
+    transform: translateX(0);
+    opacity: 0;
+    animation: fadeInSlideRight 1.2s ease-out 0.8s forwards;
+}
+
+
+/* --- Layered Images (for the right side of the visual area) --- */
+.layered-images {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    /* Position off the edge */
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.layered-images img {
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+
+    /* Apply the diagonal cut to the layered images */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-image-1 {
+    width: 350px;
+    height: 500px;
+    top: -200px;
+    /* Move up relative to parent */
+    right: 10px;
+    animation: slideInRight 1s ease-out 1s forwards;
+}
+
+.secondary-image-2 {
+    width: 300px;
+    height: 400px;
+    top: -250px;
+    /* Move down relative to parent */
+    right: 250px;
+    animation: slideInRight 1s ease-out 1.2s forwards;
+}
+
+/* Slider Dots */
+.slider-nav-dots {
+    position: absolute;
+    bottom: 30px;
+    right: 350px;
+    display: flex;
+    gap: 10px;
+    z-index: 15;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--gold-accent);
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* --- 3. Mobile Responsiveness --- */
+@media (max-width: 992px) {
+    .hero-section.hero-style-1 {
+        flex-direction: column;
+        /* Stack items vertically */
+        min-height: auto;
+    }
+
+    .hero-left-content {
+        max-width: 100%;
+        padding: 50px 20px 30px;
+        text-align: center;
+        align-items: center;
+        /* Center content on mobile */
+        order: 2;
+        /* Content below image */
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-welcome-text {
+        padding-left: 0;
+    }
+
+    .hero-welcome-text::before {
+        display: none;
+    }
+
+    .hero-right-visuals {
+        order: 1;
+        /* Image above content */
+        width: 100%;
+        height: 350px;
+        /* Fixed height for mobile visual area */
+        overflow: hidden;
+    }
+
+    /* Remove complex desktop elements on mobile */
+    .hero-diagonal-overlay {
+        display: none;
+        /* Hide the primary diagonal cut */
+    }
+
+    .layered-images {
+        display: none;
+        /* Hide secondary layered images */
+    }
+
+    .image-area {
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slider-track {
+        transform: none !important;
+        /* Ensure slider doesn't get weird transforms */
+    }
+
+    /* Reposition dots for centered mobile view */
+    .slider-nav-dots {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 20px;
+    }
+}
+
+
+/* ========================= CHOOSE YOUR COLOR SECTION STYLES ========================= */
+
+.color-choose-section {
+    padding: 100px 0;
+    background-color: #fff;
+    position: relative;
+    /* Ensure it stacks correctly below the hero */
+}
+
+.color-choose-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-left {
+    flex-basis: 50%;
+    padding-right: 80px;
+    color: var(--text-color-dark);
+}
+
+.section-tag {
+    color: var(--hover-color);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: var(--hover-color);
+    margin-left: -40px;
+}
+
+.section-title {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.section-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.features-list {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.features-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.features-list .bullet {
+    color: var(--hover-color);
+    font-size: 20px;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+
+.read-more-btn-dark {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--dark-bg);
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 35px;
+    font-size: 16px;
+    transition: background-color var(--transition-speed);
+}
+
+.read-more-btn-dark:hover {
+    background-color: #1a1e24;
+}
+
+.content-right {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marble-swatches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.swatch-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ========================= MOBILE RESPONSIVENESS ========================= */
+@media (max-width: 992px) {
+    /* --- HERO MOBILE ADJUSTMENTS --- */
+    /* ... (Same as previous response: Hero content stacks, fixed bg becomes absolute/dimmed, 
+        diagonal clips are removed, only one layered image is shown) ... */
+
+    /* --- CHOOSE COLOR MOBILE ADJUSTMENTS --- */
+    .color-choose-section .container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .content-left {
+        flex-basis: 100%;
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-tag::before {
+        content: none;
+        /* Hide line decoration on mobile */
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .features-list {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .read-more-btn-dark {
+        margin: 0 auto;
+    }
+
+    .content-right {
+        flex-basis: 100%;
+    }
+
+    .marble-swatches {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on mobile */
+        gap: 15px;
+    }
+
+    .swatch-circle {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* ========================= SERVICES SECTION STYLES ========================= */
+
+.services-section {
+    padding: 100px 0;
+    background-color: #fff;
+    position: relative;
+    /* Adding the subtle diagonal gold background texture */
+    background-image: url('https://via.placeholder.com/1000x500/FFFFFF/F0E6D2?text=Subtle+Gold+Texture');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: 100% auto;
+}
+
+.services-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.services-header-left {
+    color: var(--text-color-dark);
+}
+
+.section-tag-small {
+    color: var(--hover-color);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section-tag-small::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: var(--hover-color);
+    margin-left: -40px;
+}
+
+.section-title-small {
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 0;
+}
+
+.read-more-btn-dark {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--dark-bg);
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 35px;
+    font-size: 16px;
+    transition: background-color var(--transition-speed);
+}
+
+.services-grid {
+    display: flex;
+    gap: 30px;
+    text-align: center;
+}
+
+.service-card {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+.service-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.service-image-container {
+    position: relative;
+    margin-bottom: 50px;
+    /* add space for the overlay */
+    overflow: visible;
+    /* allow overlay to appear outside */
+}
+
+.icon-overlay {
+    position: absolute;
+    bottom: -40px;
+    /* place it below the image */
+    left: 50%;
+    transform: translateX(-50%);
+    /* center horizontally */
+    width: 80px;
+    height: 80px;
+    background-color: var(--hover-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-bg);
+    font-size: 28px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+}
+
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 30px 0 5px 0;
+    /* Add margin for icon offset */
+}
+
+.service-subtitle {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.services-footer-dots {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-dot {
+    display: inline-block;
+    width: 10px;
+    height: 2px;
+    background-color: #ddd;
+    margin: 0 5px;
+    transition: background-color var(--transition-speed);
+}
+
+.footer-dot.active {
+    background-color: var(--hover-color);
+    width: 25px;
+}
+
+/* ========================= MOBILE RESPONSIVENESS ========================= */
+@media (max-width: 992px) {
+    /* --- Hero Section Mobile Fixes --- */
+    /* ... (The fixed BG becomes absolute, content stacks, diagonal clips removed) ... */
+
+    /* --- Services Section Mobile Fixes --- */
+    .services-section {
+        padding: 50px 0;
+    }
+
+    .services-section .container {
+        padding: 0 20px;
+    }
+
+    .services-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .section-tag-small::before {
+        content: none;
+    }
+
+    .section-title-small {
+        font-size: 30px;
+    }
+
+    .services-header-right {
+        margin-top: 20px;
+    }
+
+    .services-grid {
+        flex-direction: column;
+        /* Stack cards vertically */
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 15px;
+    }
+
+    .icon-overlay {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .service-card h3 {
+        margin-top: 20px;
+    }
+}
+
+
+/* --- Services Section Container --- */
+.services {
+    position: relative;
+    background-color: var(--dark-bg);
+    /* Dark background */
+    color: var(--link-color);
+    /* White text default */
+    padding: 80px 0;
+    /* Add top/bottom padding */
+    /* Add subtle dark marble background texture if desired */
+    background-image: url('https://via.placeholder.com/500x500/323740/404753?text=Dark+Marble+Texture');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+/* --- Services Header Styles --- */
+.services-header {
+    margin-bottom: 50px;
+}
+
+.section-tag-small {
+    color: var(--hover-color);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 50px;
+}
+
+.section-tag-small::before {
+    /* Gold line decoration */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--hover-color);
+}
+
+.section-title-small {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.read-more-btn-gold {
+    background-color: var(--hover-color) !important;
+    color: var(--dark-bg) !important;
+    padding: 15px 35px;
+    font-weight: bold;
+    border-radius: 0;
+}
+
+/* --- Services Grid (4 Columns) Styles --- */
+.service-text-col {
+    padding: 20px 15px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.service-icon {
+    color: var(--hover-color);
+    /* Gold Icon */
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.service-text-col h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.service-description {
+    font-size: 15px;
+    color: #ccc;
+    /* Slightly dimmed text for readability */
+    margin-bottom: 20px;
+}
+
+.service-arrow {
+    color: var(--hover-color);
+    /* Gold arrow style */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* --- Services Image Row (The bottom three images) --- */
+.services-image-row {
+    position: relative;
+    z-index: 5;
+}
+
+.services-image-row img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific image offset/clip to match the reference images (image_58fe61.jpg) */
+.service-img-offset-left {
+    /* Offset the left image slightly down and to the right */
+    transform: translateY(20px) translateX(20px);
+}
+
+.service-img-center {
+    /* Keep center image slightly raised */
+    transform: translateY(-20px);
+}
+
+.service-img-offset-right {
+    /* Clip the right edge as seen in the image */
+    clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 0% 100%);
+    transform: translateY(20px) translateX(-20px);
+}
+
+/* ---------- Flooring Section (Parallax) ---------- */
+.flooring-section {
+  background-image: url('../imgs/hero-2.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+  padding: 100px 0;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Dark overlay */
+.flooring-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Titles */
+.title-with-lines {
+  position: relative;
+  display: inline-block;
+}
+
+.title-with-lines::before,
+.title-with-lines::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  background: #e8a33d;
+  transform: translateY(-50%);
+}
+
+.title-with-lines::before { left: -30px; }
+.title-with-lines::after { right: -30px; }
+
+/* ---------- Service Cards ---------- */
+.flooring-service-card {
+  background: rgba(0,0,0,0.7);
+  padding: 25px;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 2;
+}
+
+.flooring-service-card:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Icon */
+.service-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: #e8a33d;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-icon-wrapper i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+/* Buttons */
+.btn-view-more {
+  display: inline-flex;
+  align-items: center;
+  background-color: #636363;
+  color: #e8a33d;
+  padding: 10px 25px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.btn-view-more:hover {
+  background: #d49235;
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* ---------- Flooring Gallery Section ---------- */
+.flooring-gallery-section {
+  position: relative;
+  margin-top: -150px;
+  z-index: 5;
+}
+
+/* Carousel cards */
+.image-card {
+  width: 100%;
+  height: 350px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  transition: transform 0.35s ease;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+}
+
+/* Carousel controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 60%;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+}
+
+.carousel-indicators .active {
+  background-color: #ffc107;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .image-card { height: 250px; }
+}
+
+@media (max-width: 576px) {
+  .image-card { height: 200px; }
+  .title-with-lines::before,
+  .title-with-lines::after { display: none; }
+  .section-header-title { font-size: 1.8rem !important; }
+}
+
+/* ---------- FAQ Section ---------- */
+.faq-section {
+  padding: 60px 0;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background: #e8a33d;
+}
+
+/* Stats boxes */
+.stat-box {
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  margin-top: 15px;
+  flex: 1 1 48%;
+}
+
+.stat-box.orange {
+  background: #e8a33d;
+}
+
+.stat-box.dark {
+  background: #2c2c2c;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Image */
+.faq-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Accordion */
+.accordion-button {
+  padding: 15px 20px;
+  font-weight: 600;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #e8a33d;
+  background: transparent;
+}
+
+.accordion-button::after {
+  content: '+';
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+.accordion-button:not(.collapsed)::after {
+  content: '—';
+}
+
+.accordion-body {
+  padding: 15px 20px;
+  font-size: 0.95rem;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+
+/* Flex fixes for stats on smaller screens */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 40px 0;
+  }
+  
+  .section-title::before {
+    display: none;
+  }
+  
+  .stat-box {
+    margin-top: 10px;
+    padding: 15px;
+    flex: 1 1 100%;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .faq-image {
+    margin-bottom: 20px;
+    height: auto;
+  }
+}
