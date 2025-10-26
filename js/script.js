@@ -1,210 +1,233 @@
-// Navbar
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggleButton = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+document.addEventListener('DOMContentLoaded', function () {
+  // ===================== 1. MOBILE MENU TOGGLE =====================
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-        toggleButton.addEventListener('click', function () {
-            // Toggle the 'active' class on the nav-links container
-            navLinks.classList.toggle('active');
-
-            // Optional: Change the button icon (e.g., from hamburger to X)
-            if (navLinks.classList.contains('active')) {
-                toggleButton.innerHTML = '&times;'; // Change to 'X' symbol
-            } else {
-                toggleButton.innerHTML = '&#9776;'; // Change back to hamburger
-            }
-        });
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      navLinks.classList.toggle('active');
+      // Toggle icon
+      this.innerHTML = navLinks.classList.contains('active') ? '&times;' : '&#9776;';
     });
+  }
 
-// Hero section
-    document.addEventListener('DOMContentLoaded', function() {
-        const sliderTrack = document.querySelector('.slider-track');
-        const sliderItems = document.querySelectorAll('.slider-item');
-        const navDots = document.querySelectorAll('.dot');
-        const totalSlides = sliderItems.length;
-        let currentSlide = 0;
-
-        function updateSlider() {
-            // Move the slider track
-            sliderTrack.style.transform = `translateX(-${currentSlide * 100 / totalSlides}%)`;
-
-            // Update active dot
-            navDots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
+  // ===================== 2. MOBILE DROPDOWN TOGGLE =====================
+  const navItems = document.querySelectorAll('.nav-item.dropdown');
+  if (navItems.length > 0) {
+    navItems.forEach(item => {
+      item.addEventListener('click', function (e) {
+        // Only on mobile (when hamburger is visible)
+        if (window.getComputedStyle(menuToggle).display !== 'none') {
+          e.preventDefault(); // Prevent link navigation
+          const dropdownMenu = this.querySelector('.dropdown-menu');
+          if (dropdownMenu) {
+            dropdownMenu.classList.toggle('active');
+          }
         }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateSlider();
-        }
-
-        // Automatic slide change every 5 seconds
-        let slideInterval = setInterval(nextSlide, 5000);
-
-        // Manual navigation via dots
-        navDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                // Clear the automatic interval when a dot is clicked
-                clearInterval(slideInterval);
-                
-                currentSlide = parseInt(this.dataset.slide);
-                updateSlider();
-
-                // Restart the automatic interval after a manual interaction
-                slideInterval = setInterval(nextSlide, 5000);
-            });
-        });
-
-        // Initialize slider on load
-        updateSlider();
+      });
     });
+  }
 
+  // ===================== 3. HERO SLIDER (Style 1 - layered images) =====================
+  const dots = document.querySelectorAll('.slider-nav-dots .dot');
+  const layers = document.querySelectorAll('.layered-images img'); // Adjust selector if needed
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const heroSection = document.querySelector('.hero-section.hero-style-3');
-        
-        // Use Intersection Observer to trigger the animation once the section is visible
-        const observerOptions = {
-            root: null, 
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the section is visible
-        };
-
-        const observerCallback = (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Start CSS animations by simply letting them run
-                    // Since CSS handles the 'forwards' animation, we just need to ensure 
-                    // the elements are present in the DOM.
-                    // For more control, you could use a class toggle here, but the 
-                    // current CSS `forwards` is sufficient for a basic page load/view animation.
-
-                    // If you needed to trigger scroll-based changes, you'd add listeners here.
-                    
-                    // Unobserve after the first visibility
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        
-        // Start observing the entire hero section
-        observer.observe(heroSection);
-        
-        // NOTE: For a working slider/carousel (like the dots suggest), 
-        // you would need additional JavaScript logic to handle image switching, 
-        // similar to the example in a previous response.
-    });
-
-document.addEventListener('DOMContentLoaded', function() {
-    // --- 1. Mobile Menu Toggle ---
-    const toggleButton = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (toggleButton && navLinks) {
-        toggleButton.addEventListener('click', function () {
-            navLinks.classList.toggle('active');
-            toggleButton.innerHTML = navLinks.classList.contains('active') ? '&times;' : '&#9776;';
-        });
-    }
-
-    // --- 2. Auto-Sliding Diagonal Images ---
-    const dots = document.querySelectorAll('.slider-nav-dots .dot');
-    const layers = document.querySelectorAll('.layered-image');
+  if (dots.length > 0 && layers.length > 0) {
     let currentSlide = 0;
     let slideInterval;
     const slideDuration = 5000;
 
     function updateSlider(index) {
-        currentSlide = index % layers.length;
+      currentSlide = index % layers.length;
 
-        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+      // Update active dot
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
 
-        layers.forEach(layer => {
-            layer.classList.remove('active-image');
-            layer.style.opacity = '0';
-            layer.style.zIndex = '1';
-        });
+      // Reset all layers
+      layers.forEach(layer => {
+        layer.style.opacity = '0';
+        layer.style.zIndex = '1';
+        layer.style.transform = '';
+      });
 
-        const activeLayer = layers[currentSlide];
-        activeLayer.classList.add('active-image');
-        activeLayer.style.opacity = '1';
-        activeLayer.style.zIndex = '3';
-        activeLayer.style.transform = 'translate(-50%, -50%) translateX(250px) translateY(-50px) scale(1)';
+      // Active layer
+      const activeLayer = layers[currentSlide];
+      activeLayer.style.opacity = '1';
+      activeLayer.style.zIndex = '3';
+      activeLayer.style.transform = 'translateX(0)';
 
-        const positions = [
-            { opacity: 0.6, zIndex: 2, transform: 'translate(-50%, -50%) translateX(400px) translateY(-20px) scale(0.8)' },
-            { opacity: 0.4, zIndex: 1, transform: 'translate(-50%, -50%) translateX(500px) translateY(10px) scale(0.6)' }
-        ];
-
-        for (let j = 0; j < 2; j++) {
-            const layerIndex = (currentSlide + j + 1) % layers.length;
-            const trailingLayer = layers[layerIndex];
-            if (trailingLayer) {
-                trailingLayer.style.opacity = positions[j].opacity;
-                trailingLayer.style.zIndex = positions[j].zIndex;
-                trailingLayer.style.transform = positions[j].transform;
-            }
+      // Add trailing layers (optional visual effect)
+      for (let j = 1; j <= 2; j++) {
+        const layerIndex = (currentSlide + j) % layers.length;
+        const trailingLayer = layers[layerIndex];
+        if (trailingLayer) {
+          trailingLayer.style.opacity = (3 - j) * 0.3; // 0.6, 0.3
+          trailingLayer.style.zIndex = (3 - j);
+          trailingLayer.style.transform = `translateX(${j * 100}px)`;
         }
+      }
     }
 
     function startSlider() {
-        slideInterval = setInterval(() => {
-            const nextSlide = (currentSlide + 1) % layers.length;
-            updateSlider(nextSlide);
-        }, slideDuration);
+      slideInterval = setInterval(() => {
+        updateSlider(currentSlide + 1);
+      }, slideDuration);
     }
 
-    function resetSliderInterval() {
-        clearInterval(slideInterval);
-        startSlider();
+    function resetSlider() {
+      clearInterval(slideInterval);
+      startSlider();
     }
 
-    updateSlider(currentSlide);
+    // Initialize
+    updateSlider(0);
     startSlider();
 
+    // Dot click handlers
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        updateSlider(index);
+        resetSlider();
+      });
+    });
+  }
+
+  // ===================== 4. HERO SLIDER (Alternative - .slider-track) =====================
+  const sliderTrack = document.querySelector('.slider-track');
+  const sliderItems = document.querySelectorAll('.slider-item');
+  const navDots = document.querySelectorAll('.dot:not(.slider-nav-dots .dot)'); // Avoid conflict
+
+  if (sliderTrack && sliderItems.length > 1) {
+    let current = 0;
+    let interval = setInterval(() => {
+      current = (current + 1) % sliderItems.length;
+      sliderTrack.style.transform = `translateX(-${current * (100 / sliderItems.length)}%)`;
+
+      // Update dots if they exist
+      navDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+      });
+    }, 5000);
+
+    // Dot click support (if navDots exist)
+    navDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        clearInterval(interval);
+        current = i;
+        sliderTrack.style.transform = `translateX(-${current * (100 / sliderItems.length)}%)`;
+        navDots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+        interval = setInterval(() => {
+          current = (current + 1) % sliderItems.length;
+          sliderTrack.style.transform = `translateX(-${current * (100 / sliderItems.length)}%)`;
+        }, 5000);
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroSection = document.querySelector('.hero-section');
+    const layeredImages = document.querySelector('.layered-images');
+    const images = document.querySelectorAll('.layered-images img');
+    const dots = document.querySelectorAll('.dot');
+
+    // Get the source URLs of all images to use for the background
+    const imageSources = Array.from(images).map(img => img.src);
+    const numSlides = imageSources.length;
+    let currentSlide = 0;
+
+    // The hero section's width will be used for the slide offset
+    const slideWidth = images[0].offsetWidth; 
+
+    // Function to update the UI (image, dots, and background)
+    const updateSlider = (index) => {
+        // 1. Image Slide (using transform: translateX)
+        const offset = -index * slideWidth;
+        layeredImages.style.transform = `translateX(${offset}px)`;
+
+        // 2. Background Change
+        // Sets the hero section's background to the URL of the current image
+        heroSection.style.backgroundImage = `url('${imageSources[index]}')`;
+        
+        // 3. Update Dots
+        dots.forEach((dot, i) => {
+            dot.classList.remove('active');
+            if (i === index) {
+                dot.classList.add('active');
+            }
+        });
+
+        currentSlide = index;
+    };
+
+    // Event listeners for dots
     dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            const targetSlide = parseInt(this.dataset.slide);
-            updateSlider(targetSlide);
-            resetSliderInterval();
+        dot.addEventListener('click', (e) => {
+            const slideIndex = parseInt(e.target.dataset.slide);
+            updateSlider(slideIndex);
         });
     });
 
-    // --- 3. Auto-Slide Services Grid ---
-    const servicesGrid = document.querySelector('.services-grid');
-    if (servicesGrid) {
-        let scrollPos = 0;
-        const speed = 1; // pixels per frame
+    // Optional: Auto-slide functionality (Uncomment to enable)
+    // setInterval(() => {
+    //     currentSlide = (currentSlide + 1) % numSlides;
+    //     updateSlider(currentSlide);
+    // }, 5000); // Change slide every 5 seconds
 
-        function autoSlideGrid() {
-            scrollPos += speed;
-            if (scrollPos >= servicesGrid.scrollWidth - servicesGrid.clientWidth) scrollPos = 0;
-
-            servicesGrid.scrollTo({ left: scrollPos, behavior: 'smooth' });
-            requestAnimationFrame(autoSlideGrid);
-        }
-
-        autoSlideGrid();
-    }
+    // Initial load: Set the first image and background
+    updateSlider(0);
 });
 
+  // ===================== 5. AUTO-SCROLL SERVICES GRID (Optional) =====================
+  const servicesGrid = document.querySelector('.services-grid');
+  if (servicesGrid) {
+    let scrollPos = 0;
+    let direction = 1;
+    const speed = 0.5;
 
+    function autoScroll() {
+      const maxScroll = servicesGrid.scrollWidth - servicesGrid.clientWidth;
+      if (maxScroll <= 0) return;
 
-// Ensure the carousel explicitly has wrap=true & doesn't pause on hover
-  const el = document.querySelector('#flooringGalleryCarousel');
-  if (el) {
-    // Re-initialize to be safe if the data attributes aren't enough
-    const carousel = bootstrap.Carousel.getOrCreateInstance(el, {
+      scrollPos += speed * direction;
+      if (scrollPos >= maxScroll) {
+        direction = -1;
+      } else if (scrollPos <= 0) {
+        direction = 1;
+      }
+
+      servicesGrid.scrollLeft = scrollPos;
+      requestAnimationFrame(autoScroll);
+    }
+
+    // Only auto-scroll if there's overflow
+    if (servicesGrid.scrollWidth > servicesGrid.clientWidth) {
+      autoScroll();
+    }
+  }
+
+  // ===================== 6. BOOTSTRAP CAROUSEL (Flooring Gallery) =====================
+  const carouselEl = document.querySelector('#flooringGalleryCarousel');
+  if (carouselEl && typeof bootstrap !== 'undefined') {
+    new bootstrap.Carousel(carouselEl, {
       interval: 3500,
-      ride: 'carousel',
       wrap: true,
       pause: false
     });
   }
+
+  // ===================== 7. NAVBAR SCROLL EFFECT =====================
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(47, 51, 58, 0.95)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+      } else {
+        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+  }
+});
