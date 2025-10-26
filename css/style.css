@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,8 +30,8 @@ body {
   padding: 15px 50px;
   background-color: black;
   color: #fff;
-  position: fixed; 
-  top: 0; 
+  position: fixed;
+  top: 0;
   width: 100%;
   z-index: 100;
 }
@@ -163,24 +163,35 @@ body {
   top: 1px;
 }
 
-/* ===================== MOBILE MENU ===================== */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 15px 20px;
-    flex-wrap: wrap;
-  }
+/* ===================== NAVBAR RESPONSIVE FIXES ===================== */
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 15px 30px; /* Adjust padding on the navbar for slightly narrower screens */
+    }
+}
 
+@media (max-width: 768px) {
+  /* Show the menu toggle button */
   .menu-toggle {
     display: block;
     order: 2;
   }
 
+  /* Hide the CTA button on mobile */
   .cta-button {
-    padding: 10px 15px;
-    font-size: 12px;
-    order: 3;
+    display: none;
+  }
+  
+  .navbar {
+    padding: 10px 20px; /* Reduced vertical padding */
+    flex-wrap: wrap;
   }
 
+  .logo {
+    font-size: 20px; /* Smaller logo text */
+  }
+
+  /* Mobile nav-links */
   .nav-links {
     width: 100%;
     flex-direction: column;
@@ -188,7 +199,7 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    order: 4;
+    order: 3; /* below toggle button */
   }
 
   .nav-links.active {
@@ -224,6 +235,12 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px; /* Tighter spacing on very small screens */
+    }
+}
+
 /* ===================== HERO SECTION ===================== */
 .hero-section {
   position: relative;
@@ -240,7 +257,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  
   filter: grayscale(100%) brightness(0.4);
   z-index: 1;
 }
@@ -254,7 +270,6 @@ body {
   justify-content: center;
   padding-left: 10%;
   color: #fff;
-  
 }
 
 .hero-welcome-text {
@@ -535,7 +550,6 @@ body {
   background-color: var(--gold-accent);
 }
 
-
 @keyframes fadeInSlideUp {
   from {
     opacity: 0;
@@ -569,49 +583,78 @@ body {
   }
 }
 
-/* Mobile Hero Adjustments */
+/* ===================== HERO RESPONSIVE FIXES ===================== */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 50px; /* Overriding '5vw' for controlled sizing on wide tablets */
+  }
+
+  .hero-title.hero-style-1 {
+    font-size: 40px;
+  }
+}
+
 @media (max-width: 992px) {
   .hero-section,
   .hero-section.hero-style-1 {
     flex-direction: column;
-    min-height: auto;
-    height: auto;
+    height: auto; /* Let content flow naturally */
+    padding: 50px 20px;
   }
 
   .hero-left-content,
   .hero-left-content.hero-style-1 {
     max-width: 100%;
-    padding: 50px 20px 30px;
+    padding: 0;
     text-align: center;
-    align-items: center;
     order: 2;
   }
 
   .hero-title,
   .hero-title.hero-style-1 {
-    font-size: 36px;
+    font-size: 32px;
+    line-height: 1.2;
   }
-
-  .hero-welcome-text,
+  
+  /* Reset left padding and pseudo-element for centered mobile text in style-1 */
   .hero-welcome-text.hero-style-1 {
+    font-size: 14px;
     padding-left: 0;
+    text-align: center;
+  }
+  
+  .hero-welcome-text.hero-style-1::before {
+      content: none; /* Hide the decorative line on mobile */
   }
 
-  .hero-welcome-text::before,
-  .hero-welcome-text.hero-style-1::before {
-    display: none;
+  .hero-readmore-button,
+  .hero-readmore-button.hero-style-1 {
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 14px;
+    align-self: center; /* Center button on mobile */
+    margin: 20px auto 0 auto;
   }
 
   .hero-right-visuals,
   .hero-right-visuals.hero-style-1 {
     order: 1;
     width: 100%;
-    height: 350px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    margin-bottom: 30px; /* Add spacing between visuals and content */
   }
 
-  .hero-diagonal-overlay,
-  .layered-images,
+  /* Hide layered images completely */
+  .layered-images {
+    display: none !important;
+  }
+
+  /* Hide angled visuals panels */
   .angled-visuals-container,
   .panel-1,
   .panel-2,
@@ -619,21 +662,17 @@ body {
     display: none;
   }
 
-  .image-area {
-    position: static;
-    width: 100%;
-    height: 100%;
+  /* Hide hero diagonal overlay */
+  .hero-diagonal-overlay {
+    display: none;
   }
 
-  .slider-track {
-    transform: none !important;
-  }
-
+  /* Slider dots positioning */
   .slider-nav-dots,
   .slider-nav-dots.hero-style-1 {
+    bottom: 15px;
     right: 50%;
     transform: translateX(50%);
-    bottom: 20px;
   }
 }
 
@@ -759,11 +798,11 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile Color Section */
+/* ===================== COLOR SECTION RESPONSIVE FIXES ===================== */
 @media (max-width: 992px) {
   .color-choose-section .container {
     flex-direction: column;
-    padding: 0 20px;
+    padding: 0 30px; /* Refined container padding for tablets */
   }
 
   .content-left {
@@ -774,16 +813,30 @@ body {
   }
 
   .section-tag::before {
-    content: none;
+    content: none; /* Hide the decorative line on center-aligned mobile text */
+  }
+  
+  .section-tag {
+    padding-left: 0;
   }
 
   .section-title {
     font-size: 32px;
   }
+  
+  .section-description {
+      font-size: 14px;
+  }
 
   .features-list {
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .features-list ul {
+      flex: 1 1 45%; /* Give lists proper column width on tablet */
   }
 
   .read-more-btn-dark {
@@ -804,6 +857,21 @@ body {
     height: 120px;
   }
 }
+
+@media (max-width: 576px) {
+    .marble-swatches {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center; 
+        gap: 10px;
+        width: 100%;
+    }
+
+    .swatch-circle {
+        width: 100px;
+        height: 100px;
+    }
+}
+
 
 /* ===================== SERVICES SECTION ===================== */
 .services-section {
@@ -924,50 +992,6 @@ body {
   margin-top: 50px;
 }
 
-.contact-section {
-  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-info i {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.contact-info i:hover {
-  transform: scale(1.2);
-  color: #000;
-}
-
-.contact-form input,
-.contact-form textarea {
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #666;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.btn-secondary {
-  background-color: #4b4b4b;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #000;
-  transform: translateY(-3px);
-}
-
-.social-icons a:hover {
-  color: #6c757d;
-  transform: scale(1.1);
-}
-
-
 .footer-dot {
   display: inline-block;
   width: 10px;
@@ -992,6 +1016,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
+}
+
+.services .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 50px;
 }
 
 .services-header {
@@ -1071,7 +1101,7 @@ body {
   transform: translateY(20px) translateX(-20px);
 }
 
-/* Mobile Services */
+/* ===================== SERVICES SECTION RESPONSIVE FIXES ===================== */
 @media (max-width: 992px) {
   .services-section,
   .services {
@@ -1080,7 +1110,7 @@ body {
 
   .services-section .container,
   .services .container {
-    padding: 0 20px;
+    padding: 0 30px;
   }
 
   .services-header {
@@ -1092,6 +1122,15 @@ body {
 
   .section-tag-small::before {
     content: none;
+    margin-left: 0;
+  }
+  
+  .section-tag-small.dark {
+      padding-left: 0;
+  }
+  
+  .services-header-left {
+      text-align: center;
   }
 
   .section-title-small {
@@ -1121,6 +1160,26 @@ body {
     margin-top: 20px;
   }
 }
+
+@media (max-width: 576px) {
+    .section-title-small {
+        font-size: 24px;
+    }
+    
+    .services-image-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Remove image transformations which can cause overflow on mobile */
+    .service-img-offset-left,
+    .service-img-center,
+    .service-img-offset-right {
+        transform: none; /* Remove translation */
+        clip-path: none; /* Remove angled clip path */
+    }
+}
+
 
 /* ===================== FLOORING SECTION ===================== */
 .flooring-section {
@@ -1346,16 +1405,9 @@ body {
   border-top: 1px solid #eee;
 }
 
-/* ===================== RESPONSIVE ===================== */
+/* ===================== FLOORING & FAQ RESPONSIVE FIXES ===================== */
 @media (max-width: 992px) {
   .image-card { height: 250px; }
-}
-
-@media (max-width: 576px) {
-  .image-card { height: 200px; }
-  .title-with-lines::before,
-  .title-with-lines::after { display: none; }
-  .section-header-title { font-size: 1.8rem !important; }
 }
 
 @media (max-width: 768px) {
@@ -1380,5 +1432,29 @@ body {
   .faq-image {
     margin-bottom: 20px;
     height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .image-card { height: 200px; }
+  .title-with-lines::before,
+  .title-with-lines::after { display: none; }
+  .section-header-title { font-size: 1.8rem !important; }
+  
+  .flooring-section {
+      padding: 40px 0;
+  }
+  
+  .stat-box {
+    margin-top: 8px; /* Tighter vertical spacing */
+    padding: 15px;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .section-description {
+      font-size: 14px;
   }
 }
