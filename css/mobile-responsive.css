@@ -1,0 +1,188 @@
+/* ===================== GLOBAL MOBILE ENHANCEMENTS ===================== */
+
+/* Prevent horizontal overflow on very small screens */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Ensure all containers respect padding on small screens */
+@media (max-width: 576px) {
+  .container,
+  .color-choose-section .container,
+  .services-section .container,
+  .services .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  /* Prevent oversized text from causing overflow */
+  h1, h2, h3, h4, .hero-title, .section-title, .section-title-small {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Tighten up vertical spacing */
+  .section-title {
+    font-size: 28px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .section-description {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .features-list li {
+    font-size: 14px !important;
+  }
+
+  /* Ensure CTA and buttons don’t overflow */
+  .read-more-btn-dark,
+  .read-more-btn-gold,
+  .hero-readmore-button,
+  .btn-view-more {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ===================== HERO SECTION MOBILE FIXES ===================== */
+@media (max-width: 768px) {
+  .hero-section,
+  .hero-section.hero-style-1 {
+    padding-top: 80px !important; /* Account for fixed navbar height */
+  }
+
+  .hero-left-content,
+  .hero-left-content.hero-style-1 {
+    padding: 0 10px !important;
+  }
+
+  .hero-title,
+  .hero-title.hero-style-1 {
+    font-size: 28px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .hero-welcome-text,
+  .hero-welcome-text.hero-style-1 {
+    font-size: 12px !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+/* ===================== SERVICES SECTION MOBILE FIXES ===================== */
+@media (max-width: 576px) {
+  .service-card {
+    padding: 15px !important;
+  }
+
+  .service-card h3 {
+    font-size: 18px !important;
+  }
+
+  .service-description {
+    font-size: 14px !important;
+  }
+
+  /* Ensure icon overlay doesn’t overflow */
+  .icon-overlay {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 18px !important;
+    bottom: -30px !important;
+  }
+}
+
+/* ===================== FLOORING & FAQ MOBILE FIXES ===================== */
+@media (max-width: 576px) {
+  .flooring-section {
+    min-height: auto !important;
+    padding: 60px 15px !important;
+  }
+
+  .flooring-service-card {
+    padding: 20px !important;
+  }
+
+  .service-icon-wrapper {
+    width: 50px !important;
+    height: 50px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .service-icon-wrapper i {
+    font-size: 1.5rem !important;
+  }
+
+  .btn-view-more {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+  }
+
+  /* FAQ Accordion Padding Fix */
+  .accordion-button,
+  .accordion-body {
+    padding: 12px 15px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ===================== NAVBAR MOBILE ENHANCEMENTS ===================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px !important;
+  }
+
+  .logo {
+    font-size: 18px !important;
+  }
+
+  .logo-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .nav-link {
+    font-size: 15px !important;
+    padding: 10px 15px !important;
+  }
+
+  /* Ensure dropdowns don’t cause overflow */
+  .dropdown-menu {
+    position: static !important;
+    background-color: #1a1c20 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .dropdown-menu li a {
+    font-size: 14px !important;
+    padding: 8px 15px !important;
+  }
+}
+
+/* ===================== FINISH SLIDER MOBILE FIX ===================== */
+@media (max-width: 576px) {
+  .finish-slider {
+    padding: 80px 10px !important;
+  }
+
+  .finish-title {
+    font-size: 2rem !important;
+    margin-bottom: 25px !important;
+  }
+
+  .finish-card {
+    width: 95% !important;
+    height: 130px !important;
+    font-size: 13px !important;
+  }
+
+  .finish-controls button {
+    padding: 6px 12px !important;
+    font-size: 1.2rem !important;
+  }
+}

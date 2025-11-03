@@ -27,113 +27,8 @@
       rel="stylesheet"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/mobile-responsive.css" />
-    <style>
-      /* ================= PARALLAX BACKGROUND ================= */
-      .about-product {
-        background: url("./imgs/hero-1.jpg") center/cover fixed;
-        color: #fff;
-        position: relative;
-        z-index: 1;
-        padding: 100px 0;
-      }
-      .about-product::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        z-index: -1;
-      }
-      .about-product h2,
-      .about-product h3 {
-        color: #ffb700;
-        font-weight: 700;
-      }
-      .about-text p {
-        color: #f3f3f3;
-        line-height: 1.7;
-      }
-      /* ================= TIMELINE ADVANTAGES ================= */
-      .timeline {
-        position: relative;
-        margin-top: 60px;
-      }
-      .timeline::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 4px;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateX(-50%);
-      }
-      .timeline-item {
-        position: relative;
-        width: 50%;
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        backdrop-filter: blur(6px);
-        transition: all 0.4s ease;
-      }
-      .timeline-item:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-5px);
-      }
-      .timeline-item h4 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #ffb700;
-        margin-bottom: 10px;
-      }
-      .timeline-item h5 {
-        font-weight: 600;
-        color: #fff;
-      }
-      .timeline-item p {
-        color: #e0e0e0;
-      }
-      .timeline-item.left {
-        left: 0;
-        text-align: right;
-      }
-      .timeline-item.right {
-        left: 50%;
-        text-align: left;
-      }
-      .timeline-item.left::after,
-      .timeline-item.right::after {
-        content: "";
-        position: absolute;
-        top: 25px;
-        width: 20px;
-        height: 20px;
-        background: #ffb700;
-        border-radius: 50%;
-        border: 3px solid #fff;
-      }
-      .timeline-item.left::after {
-        right: -10px;
-      }
-      .timeline-item.right::after {
-        left: -10px;
-      }
-      @media (max-width: 992px) {
-        .timeline::before {
-          left: 10px;
-        }
-        .timeline-item {
-          width: 100%;
-          text-align: left !important;
-          padding-left: 50px;
-        }
-        .timeline-item::after {
-          left: 10px !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/mobile-responsive.css" />
   </head>
   <body>
     <div class="body">
@@ -143,9 +38,12 @@
       >
         <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand d-flex align-items-center" href="./index.html">
+          <a
+            class="navbar-brand d-flex align-items-center"
+            href="../index.html"
+          >
             <img
-              src="./imgs/logo-bpht.png"
+              src="../imgs/logo-bpht.png"
               alt="Logo"
               height="70"
               width="150"
@@ -172,14 +70,14 @@
               <li class="nav-item">
                 <a
                   class="nav-link text-uppercase fw-semibold"
-                  href="./index.html"
+                  href="../index.html"
                   >Home</a
                 >
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link text-uppercase fw-semibold"
-                  href="./index.html#about-us"
+                  href="../index.html#about-us"
                   >About Us</a
                 >
               </li>
@@ -201,9 +99,7 @@
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <a
-                      class="dropdown-item text-white"
-                      href="/pages/fabric-series.html"
+                    <a class="dropdown-item text-white" href="#"
                       >Fabric Series</a
                     >
                   </li>
@@ -242,12 +138,16 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link text-uppercase fw-semibold" href="#faqs"
+                <a
+                  class="nav-link text-uppercase fw-semibold"
+                  href="../index.html#faqs"
                   >Faqs</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-uppercase fw-semibold" href="#contact"
+                <a
+                  class="nav-link text-uppercase fw-semibold"
+                  href="../index.html#contact"
                   >Contact Us</a
                 >
               </li>
@@ -255,7 +155,7 @@
               <!-- CTA Button -->
               <li class="nav-item ms-lg-3">
                 <a
-                  href="#"
+                  href="../index.html#contact"
                   class="btn btn-warning fw-bold text-uppercase px-3 py-2 rounded-pill"
                 >
                   Get Quote Here →
@@ -268,215 +168,36 @@
 
       <!-- Navbar End -->
       <div class="body-sections">
-        <section class="hero-section hero-style-1 bg-secondary">
-          <div class="hero-left-content">
-            <p class="hero-welcome-text">WELCOME TO DIGITAL MARBLEX</p>
-            <h1 class="hero-title">
-              Centurie Design Trend <br />
-              Strength Throughout
-            </h1>
-            <a href="#" class="hero-readmore-button">
-              READ MORE <span class="arrow-right">&rarr;</span>
-            </a>
-          </div>
-
-          <div class="hero-right-visuals">
-            <div class="layered-images">
-              <img
-                src="./imgs/hero-2.jpg"
-                alt="Layered Image 1"
-                class="secondary-image-1"
-              />
-              <img
-                src="./imgs/hero-1.jpg"
-                alt="Layered Image 2"
-                class="secondary-image-2"
-              />
-              <img
-                src="./imgs/hero_bg.jpg"
-                alt="Layered Image 3"
-                class="secondary-image-3"
-              />
-              <img
-                src="./imgs/hero-bg2.jpg"
-                alt="Layered Image 4"
-                class="secondary-image-4"
-              />
-            </div>
-
-            <div class="slider-nav-dots">
-              <span class="dot active" data-slide="0"></span>
-              <span class="dot" data-slide="1"></span>
-              <span class="dot" data-slide="2"></span>
-              <span class="dot" data-slide="3"></span>
-            </div>
-          </div>
-        </section>
-
-        <section class="color-choose-section" id="about-us">
+        <!-- ===================== TITLE BANNER SECTION ===================== -->
+        <section
+          class="d-flex align-items-center justify-content-center text-center text-white bg-dark bg-opacity-75"
+          style="
+            background: url('./imgs/banner-bg.jpg') center/cover no-repeat;
+            height: 60vh;
+          "
+        >
           <div class="container">
-            <div class="content-left">
-              <p class="section-tag">ABOUT US</p>
-              <h2 class="section-title">
-                Choose Your Color What <br />
-                You Want For Your Home
-              </h2>
-              <p class="section-description">
-                Polystones/ BPHT ENTERPRISES is born from a deep appreciation
-                for the artistry of nature and the precision of modern
-                engineering. From our base in Hyderabad, we specialize in
-                delivering premium marble sheets that bring the magnificent
-                beauty of natural stone into contemporary design with
-                unprecedented versatility. We meticulously select our materials
-                and employ advanced techniques to ensure every sheet meets the
-                highest standards of quality, durability, and aesthetic
-                perfection. With a focus on "luxurious marble surfaces", we
-                bring extensive knowledge and a curated selection of products,
-                ensuring that your experience with us is as seamless and
-                satisfying as the finished result. Your inspiration, our
-                expertise-together, we create extraordinary spaces.
-              </p>
-              <div class="features-list">
-                <ul>
-                  <li><span class="bullet">&bull;</span> More Expensive</li>
-                  <li>
-                    <span class="bullet">&bull;</span> Red Alicante Marble
-                  </li>
-                  <li><span class="bullet">&bull;</span> Less Maintenance</li>
-                </ul>
-                <ul>
-                  <li>
-                    <span class="bullet">&bull;</span> Elegant Vein Patterns
-                  </li>
-                  <li><span class="bullet">&bull;</span> Heat-Resistant</li>
-                  <li>
-                    <span class="bullet">&bull;</span> Stargate Gold Marble
-                  </li>
-                </ul>
-              </div>
-              <a href="#" class="read-more-btn-dark">
-                READ MORE <span class="arrow-right"></span>
-              </a>
-            </div>
-            <div class="content-right">
-              <div class="marble-swatches">
-                <div
-                  class="swatch-circle"
-                  style="background-image: url('./imgs/hero-bg2.jpg')"
-                ></div>
-                <div
-                  class="swatch-circle"
-                  style="background-image: url('./imgs/hero-2.jpg')"
-                ></div>
-                <div
-                  class="swatch-circle"
-                  style="background-image: url('./imgs/hero_bg.jpg')"
-                ></div>
-                <div
-                  class="swatch-circle"
-                  style="background-image: url('./imgs/hero-1.jpg')"
-                ></div>
-                <div
-                  class="swatch-circle"
-                  style="background-image: url('./imgs/hero-2.jpg')"
-                ></div>
-                <div
-                  class="swatch-circle"
-                  style="background-image: url('./imgs/hero-bg2.jpg')"
-                ></div>
-              </div>
-            </div>
+            <h1 class="display-4 fw-bold mb-3">Fabric Series</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item">
+                  <a
+                    href="../index.html"
+                    class="text-warning text-decoration-none"
+                    >Home</a
+                  >
+                </li>
+                <li
+                  class="breadcrumb-item active text-white"
+                  aria-current="page"
+                >
+                  Fabric Series
+                </li>
+              </ol>
+            </nav>
           </div>
         </section>
-        <!-- ===================== SECTION START ===================== -->
-        <section class="about-product">
-          <div class="container">
-            <div class="row align-items-start">
-              <div class="col-lg-8 about-text" data-aos="fade-right">
-                <h2>About Product</h2>
-                <p>
-                  Experience the timeless elegance of marble, now reimagined for
-                  modern applications with our exquisite marble sheets. These
-                  versatile surfaces capture the captivating beauty and unique
-                  veining of natural stone, offering a lightweight yet durable
-                  solution for endless design possibilities.
-                </p>
-                <p>
-                  Whether adorning expansive walls, sleek countertops, or
-                  intricate details, marble sheets infuse interiors with refined
-                  luxury and lasting grandeur.
-                </p>
-              </div>
-              <div class="col-lg-4 text-center" data-aos="fade-left">
-                <img
-                  src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=500&q=80"
-                  class="img-fluid rounded shadow-lg"
-                  alt="Marble Product"
-                />
-              </div>
-            </div>
-            <div class="timeline mt-5">
-              <h3 class="text-center mb-5" data-aos="zoom-in">Advantages</h3>
-              <!-- Timeline items -->
-              <div class="timeline-item left" data-aos="fade-right">
-                <h4>1</h4>
-                <h5>Super scratch resistance</h5>
-                <p>
-                  The surface adopts a high-tech coating, giving it much better
-                  scratch resistance than ordinary decorative films.
-                </p>
-              </div>
-              <div class="timeline-item right" data-aos="fade-left">
-                <h4>2</h4>
-                <h5>Superb anti-fouling performance</h5>
-                <p>
-                  Solves poor anti-fouling performance of ordinary PVC film,
-                  making stains easy to clean and maintain.
-                </p>
-              </div>
-              <div class="timeline-item left" data-aos="fade-right">
-                <h4>3</h4>
-                <h5>Superb chemical resistance</h5>
-                <p>
-                  Resistant to solvents like alcohol or banana water,
-                  maintaining clarity and cleanliness over time.
-                </p>
-              </div>
-              <div class="timeline-item right" data-aos="fade-left">
-                <h4>4</h4>
-                <h5>Fine texture and natural finish</h5>
-                <p>
-                  High-precision printing ensures a lifelike texture and premium
-                  marble-like detail.
-                </p>
-              </div>
-              <div class="timeline-item left" data-aos="fade-right">
-                <h4>5</h4>
-                <h5>Exquisite design options</h5>
-                <p>
-                  Variety of materials and finishes such as wood, stone, and
-                  fabric grain for unique decorative needs.
-                </p>
-              </div>
-              <div class="timeline-item right" data-aos="fade-left">
-                <h4>6</h4>
-                <h5>Eco-friendly and sustainable</h5>
-                <p>
-                  Produced under strict environmental standards, ensuring safe
-                  and green applications.
-                </p>
-              </div>
-              <div class="timeline-item left" data-aos="fade-right">
-                <h4>7</h4>
-                <h5>Weather & UV resistance</h5>
-                <p>
-                  Durable outdoor performance proven under prolonged sunlight
-                  and environmental testing.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+
         <section class="services-section" id="services">
           <div class="container">
             <div
@@ -1335,7 +1056,7 @@
                   class="d-inline-flex align-items-center mb-4 text-decoration-none"
                 >
                   <img
-                    src="./imgs/logo-bpht.png"
+                    src="../imgs/logo-bpht.png"
                     alt="Marbtex Logo"
                     class="img-fluid"
                     style="max-width: 160px"
