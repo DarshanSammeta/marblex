@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BPHT ENTERPRISES</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/mobile-responsive.css" />
+    <style>
+      /* Section Styling */
+      .stone-series-section {
+        background-color: #f8f9fa;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .section-subtitle {
+        font-size: 1.1rem;
+      }
+
+      /* Card Styling */
+      .stone-card {
+        height: 220px;
+        border-radius: 10px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+      }
+
+      .stone-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        border-radius: 10px;
+      }
+
+      /* Hover Effect */
+      .stone-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .stone-card .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        background: rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+        color: #fff;
+        transition: height 0.4s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .stone-card:hover .overlay {
+        height: 100%;
+      }
+
+      .stone-card .overlay h5 {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
+      .stone-card:hover .overlay h5 {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Scroll Animation */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 1s ease forwards;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <!-- Navbar Start -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-white sticky-top py-3 px-4"
+      >
+        <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center" href="./index.html">
+            <img
+              src="./imgs/logo-bpht.png"
+              alt="Logo"
+              height="70"
+              width="150"
+              class="me-2"
+            />
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-uppercase fw-semibold"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-uppercase fw-semibold"
+                  href="./index.html#about-us"
+                  >About Us</a
+                >
+              </li>
+
+              <!-- Dropdown -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link text-uppercase fw-semibold"
+                  href="./services.html"
+                >
+                  Services
+                </a>
+                <!-- <ul
+                  class="dropdown-menu bg-dark border-0 shadow-sm"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item text-white"
+                      href="/pages/fabric-series.html"
+                      >Fabric Series</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Aesthetics Model</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">Wood Series</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Stone Series</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">Elegant</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">ZL Series</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">ZLJ Series</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">ZLJT Series</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">ZLC Series</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">ZLD Series</a>
+                  </li>
+                </ul> -->
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link text-uppercase fw-semibold"
+                  href="series.html"
+                  >Series</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase fw-semibold" href="#contact"
+                  >Contact Us</a
+                >
+              </li>
+
+              <!-- CTA Button -->
+              <li class="nav-item ms-lg-3">
+                <a
+                  href="#"
+                  class="btn btn-warning fw-bold text-uppercase px-3 py-2 rounded-pill"
+                >
+                  Get Quote Here →
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Navbar End -->
+      <div class="body-sections">
+        <!-- ===================== TITLE BANNER SECTION ===================== -->
+        <section
+          class="d-flex justify-content-center bg-light align-items-center text-center position-relative"
+          style="min-height: 50vh"
+        >
+          <div class="position-relative z-2">
+            <h2 class="fw-bold mb-2 text-dark">Our Services</h2>
+            <nav aria-label="breadcrumb">
+              <ol
+                class="breadcrumb d-inline-flex bg-transparent p-0 m-0 justify-content-center"
+              >
+                <li class="breadcrumb-item">
+                  <a
+                    href="../index.html"
+                    class="text-primary text-decoration-none"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li class="breadcrumb-item text-muted" aria-current="page">
+                  Our Services
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </section>
+
+        <!-- ===================== METALLIC & EMBOSSED SERIES SECTION ===================== -->
+        <section
+          class="finish-slider position-relative text-light text-center py-5"
+        >
+          <!-- Background with Overlay -->
+          <div
+            class="position-absolute top-0 start-0 w-100 h-100"
+            style="
+              background: linear-gradient(
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.6)
+                ),
+                url('../imgs/series/fabric-series/fb-s-bg.jpg') center/cover
+                  no-repeat;
+              z-index: 1;
+            "
+          ></div>
+
+          <div class="container position-relative z-2">
+            <h2 class="mb-3 fw-bold">Aesthetics Model</h2>
+            <h4 class="mb-4 fw-semibold text-warning">Fabric Series</h4>
+
+            <!-- Carousel -->
+            <div
+              id="fabricSeriesCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                  <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('../imgs/series/fabric-series/Midnight.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FFB-5024 - Midnight Weave
+                      </p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('../imgs/series/fabric-series/Frosted-Linen.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FFB-5025 - Frosted Linen
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                  <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('../imgs/series/fabric-series/Sandy-Jute.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FFB-5026 - Sandy Jute
+                      </p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('../imgs/series/fabric-series/Warm-Taupe-Mesh.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FFB-5027 - Warm Taupe Mesh
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                  <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('./imgs/series/Aesthetics-Model/Steel-Linen-Weave.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FB-5028 - Steel Linen Weave
+                      </p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('./imgs/series/Aesthetics-Model/Blush-Textured-Canvas.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FFB-5029 - Cream Tweed
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="carousel-item">
+                  <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('./imgs/series/Aesthetics-Model/Grey-Crosshatch.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FFB-5030 - Grey Crosshatch
+                      </p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <div
+                        class="card border-0 shadow-sm"
+                        style="
+                          background: url('./imgs/series/Aesthetics-Model/Taupe-Woven-Texture.png')
+                            center/cover;
+                          height: 200px;
+                        "
+                      ></div>
+                      <p class="mt-2 small fw-semibold">
+                        FFB-5031 - Taupe Woven Texture
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Carousel Controls -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#fabricSeriesCarousel"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#fabricSeriesCarousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-5 bg-light">
+          <div class="container">
+            <div class="row align-items-center g-4">
+              <!-- LEFT: Title & Description -->
+              <div class="col-lg-4 text-center text-lg-start">
+                <h2 class="fw-bold text-dark mb-3">Elegant & Wood Series</h2>
+                <p class="text-muted mb-4">
+                  Discover the beauty of our
+                  <strong>Elegant & Wood Series</strong>, blending
+                  fabric-inspired sophistication with natural wooden tones for
+                  timeless interiors.
+                </p>
+
+                <!-- Optional buttons -->
+                <a href="#contact" class="btn btn-dark btn-sm me-2"
+                  >Contact Us</a
+                >
+                <a href="#gallery" class="btn btn-outline-dark btn-sm"
+                  >View Gallery</a
+                >
+              </div>
+
+              <!-- RIGHT: Carousel -->
+              <div class="col-lg-8">
+                <div
+                  id="seriesCarousel"
+                  class="carousel slide"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                      <div class="row g-4 justify-content-center">
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/elegant/Ivory-Fabric-Touch.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FEG-5036 - Ivory Fabric Touch
+                          </p>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/elegant/Soft-Blush-Grain.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FEG-5037 - Soft Blush Grain
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                      <div class="row g-4 justify-content-center">
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/elegant/Dark-Wood-Texture.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FEG-5038 - Dark Wood Texture
+                          </p>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/elegant/Rich-Cocoa-Wave.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FEG-5039 - Rich Cocoa Wave
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                      <div class="row g-4 justify-content-center">
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/wood-series/Walnut-Ember.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FW-5032 - Walnut Ember
+                          </p>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/wood-series/Charcoal-Oak.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FW-5033 - Charcoal Oak
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                      <div class="row g-4 justify-content-center">
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/wood-series/Shadow-Teak.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FW-5034 - Shadow Teak
+                          </p>
+                        </div>
+                        <div class="col-6 col-md-3">
+                          <div
+                            class="card border-0 shadow-sm"
+                            style="
+                              background: url('./imgs/series/wood-series/Driftwood-Ash.png')
+                                center/cover;
+                              height: 200px;
+                            "
+                          ></div>
+                          <p class="mt-2 small fw-semibold">
+                            FW-5035- Driftwood Ash
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Controls -->
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#seriesCarousel"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon bg-dark rounded-circle p-2"
+                    ></span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#seriesCarousel"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon bg-dark rounded-circle p-2"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="stone-series-section py-5 text-center">
+          <div class="container">
+            <h2 class="section-title mb-2 fw-bold">Stone Series</h2>
+            <p class="section-subtitle mb-4 text-muted">
+              Natural Stone Collection
+            </p>
+
+            <div class="row g-4 justify-content-center">
+              <!-- Repeat this block for each image -->
+              <!-- Card 1 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Onyx-Marble-Vein.png"
+                    class="img-fluid"
+                    alt="Stone 1"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5040 - Onyx Marble Vein</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Pearl-Stone-Dust.png"
+                    class="img-fluid"
+                    alt="Stone 2"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5041 - Pearl Stone Dust</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Minted-Jade.png"
+                    class="img-fluid"
+                    alt="Stone 3"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5042 - Minted Jade</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Black-Gold-Marble.png"
+                    class="img-fluid"
+                    alt="Stone 4"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5043 - Black Gold Marble</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Sandy-Fossil.png"
+                    class="img-fluid"
+                    alt="Stone 5"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5044 - Sandy Fossil</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Aqua-Strata.png"
+                    class="img-fluid"
+                    alt="Stone 6"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5051 - Aqua Strata</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Pebble-Mix-Quartz.png"
+                    class="img-fluid"
+                    alt="Stone 7"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5045 - Pebble Mix Quartz</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Deep-Charcoal-Marble.png"
+                    class="img-fluid"
+                    alt="Stone 8"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5046 - Deep Charcoal Marble</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 9 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Amber-Limestone.png"
+                    class="img-fluid"
+                    alt="Stone 9"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5047 - Amber Limestone</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 10 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Copper-Rust-Granite.png"
+                    class="img-fluid"
+                    alt="Stone 10"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5048 - Copper Rust Granite</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 11 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Lava-Stone-Mist.png"
+                    class="img-fluid"
+                    alt="Stone 11"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5049 - Lava Stone Mist</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 12 -->
+              <div class="col-6 col-md-4 col-lg-3 fade-up">
+                <div class="stone-card position-relative overflow-hidden">
+                  <img
+                    src="imgs/series/stone-series/Sunset-Travertine.png"
+                    class="img-fluid"
+                    alt="Stone 12"
+                  />
+                  <div class="overlay">
+                    <h5>FS-5050 - Sunset Travertine</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="contact-section py-5 bg-light">
+          <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5">
+              <p class="section-subtitle text-uppercase text-secondary fw-bold">
+                Get in Touch
+              </p>
+              <h2 class="section-title fw-bold text-dark">Contact Us</h2>
+              <p class="text-muted">
+                We’d love to hear from you! Let’s discuss your marble project.
+              </p>
+            </div>
+            <div class="row g-4 align-items-center">
+              <!-- Contact Info -->
+              <div class="col-lg-5" data-aos="fade-right">
+                <div class="contact-info p-4 bg-white shadow rounded-4">
+                  <h5 class="fw-bold mb-3 text-dark">Our Office</h5>
+                  <p class="text-dark">
+                    <i class="bi bi-geo-alt-fill text-muted me-2"></i> 123
+                    Marblex Street, Hyderabad, India
+                  </p>
+                  <p class="text-dark">
+                    <i class="bi bi-envelope-fill text-muted me-2"></i>
+                    info@marblex.com
+                  </p>
+                  <p class="text-dark">
+                    <i class="bi bi-telephone-fill text-muted me-2"></i> +91
+                    98765 43210
+                  </p>
+                  <div class="social-icons mt-4">
+                    <a href="#" class="me-3 text-dark fs-5"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                    <a href="#" class="me-3 text-dark fs-5"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a href="#" class="me-3 text-dark fs-5"
+                      ><i class="bi bi-twitter"></i
+                    ></a>
+                    <a href="#" class="text-dark fs-5"
+                      ><i class="bi bi-linkedin"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Contact Form -->
+              <div class="col-lg-7" data-aos="fade-left">
+                <form
+                  id="contactForm"
+                  class="contact-form p-4 bg-white shadow rounded-4"
+                  action="./php/contact.php"
+                  method="POST"
+                >
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        placeholder="Your Name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Your Email"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        type="text"
+                        name="subject"
+                        class="form-control"
+                        placeholder="Subject"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        type="tel"
+                        name="phone"
+                        class="form-control"
+                        placeholder="Phone"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <textarea
+                        name="message"
+                        class="form-control"
+                        rows="4"
+                        placeholder="Your Message"
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="col-12 text-center">
+                      <button
+                        type="submit"
+                        class="btn btn-secondary px-4 py-2 mt-3"
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer id="footer" class="footer bg-dark text-light pt-5">
+          <div class="container">
+            <div class="row gy-5">
+              <!-- ======== Footer Left (Logo + About) ======== -->
+              <div class="col-lg-4">
+                <a
+                  href="index.html"
+                  class="d-inline-flex align-items-center mb-4 text-decoration-none"
+                >
+                  <img
+                    src="./imgs/logo-bpht.png"
+                    alt="Marbtex Logo"
+                    class="img-fluid"
+                    style="max-width: 160px"
+                  />
+                </a>
+                <p class="mb-4 small">
+                  Polystones / BPHT Enterprises, based in Hyderabad, blends
+                  nature’s artistry with modern engineering to deliver premium,
+                  versatile marble sheets. Focused on luxury, quality, and
+                  perfection — we help transform inspiration into extraordinary
+                  spaces.
+                </p>
+              </div>
+
+              <!-- ======== Company Links ======== -->
+              <div class="col-lg-2 col-6">
+                <h5 class="fw-semibold mb-3 text-warning">Company</h5>
+                <ul class="list-unstyled small">
+                  <li>
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> About Us</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Our Products</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Projects</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Gallery</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Contact Us</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- ======== Get in Touch ======== -->
+              <div class="col-lg-3">
+                <h5 class="fw-semibold mb-3 text-warning">Get in Touch</h5>
+                <ul class="list-unstyled small mb-4">
+                  <li class="d-flex mb-2">
+                    <i class="bi bi-geo-alt text-warning me-2"></i>
+                    <span
+                      ><strong>Office Address:</strong> H. No.5-3/1/78, Road
+                      No-5, Padmavathi Colony Phase-II, Near ZPHS School,
+                      Boduppal, Medipalli (Mandal), Medchal-Malkajgiri
+                      (Dist)-500092.</span
+                    >
+                  </li>
+                  <li class="d-flex mb-2">
+                    <i class="bi bi-telephone text-warning me-2"></i>
+                    <span>+91 8328057958, +91 8555941169</span>
+                  </li>
+                  <li class="d-flex">
+                    <i class="bi bi-envelope text-warning me-2"></i>
+                    <span>bpht_entp@outlook.com</span>
+                  </li>
+                </ul>
+
+                <!-- Social Icons -->
+                <div class="d-flex gap-3">
+                  <a href="#" class="social-link"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                  <a href="#" class="social-link"
+                    ><i class="bi bi-twitter-x"></i
+                  ></a>
+                  <a href="#" class="social-link"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                  <a href="#" class="social-link"
+                    ><i class="bi bi-youtube"></i
+                  ></a>
+                  <a href="#" class="social-link"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                </div>
+              </div>
+
+              <!-- ======== Stay Updated (Newsletter) ======== -->
+              <div class="col-lg-3">
+                <h5 class="fw-semibold mb-3 text-warning">Stay Updated</h5>
+                <form
+                  action="forms/newsletter.php"
+                  method="post"
+                  class="php-email-form"
+                >
+                  <div class="input-group">
+                    <input
+                      type="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="Enter your email"
+                      required
+                    />
+                    <button type="submit" class="btn btn-warning">
+                      <i class="bi bi-send"></i>
+                    </button>
+                  </div>
+                  <div
+                    class="loading small text-secondary mt-2"
+                    style="display: none"
+                  >
+                    Loading
+                  </div>
+                  <div class="error-message text-danger mt-2"></div>
+                  <div class="sent-message text-success mt-2"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======== Footer Bottom ======== -->
+          <div class="footer-bottom border-top border-secondary mt-5 py-3">
+            <div class="container">
+              <div class="row align-items-center text-center text-lg-start">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                  <p class="mb-0 small">
+                    © <span>Copyright</span>
+                    <strong class="text-warning"> BPHT ENTERPRISES</strong> All
+                    Rights Reserved
+                  </p>
+                </div>
+                <div class="col-lg-6">
+                  <div
+                    class="d-flex justify-content-center justify-content-lg-end gap-3 small mb-2"
+                  >
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- Bootstrap JS Bundle -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Custom JS -->
+      <script src="../js/script.js"></script>
+      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      <!-- AOS Animation Library -->
+      <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init({ duration: 1000, once: true });
+      </script>
+      <script>
+        AOS.init({
+          duration: 1000,
+          once: true,
+        });
+      </script>
+    </div>
+  </body>
+</html>

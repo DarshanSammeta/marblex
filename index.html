@@ -29,111 +29,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/mobile-responsive.css" />
-    <style>
-      /* ================= PARALLAX BACKGROUND ================= */
-      .about-product {
-        background: url("./imgs/hero-1.jpg") center/cover fixed;
-        color: #fff;
-        position: relative;
-        z-index: 1;
-        padding: 100px 0;
-      }
-      .about-product::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        z-index: -1;
-      }
-      .about-product h2,
-      .about-product h3 {
-        color: #ffb700;
-        font-weight: 700;
-      }
-      .about-text p {
-        color: #f3f3f3;
-        line-height: 1.7;
-      }
-      /* ================= TIMELINE ADVANTAGES ================= */
-      .timeline {
-        position: relative;
-        margin-top: 60px;
-      }
-      .timeline::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 4px;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateX(-50%);
-      }
-      .timeline-item {
-        position: relative;
-        width: 50%;
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        backdrop-filter: blur(6px);
-        transition: all 0.4s ease;
-      }
-      .timeline-item:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-5px);
-      }
-      .timeline-item h4 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #ffb700;
-        margin-bottom: 10px;
-      }
-      .timeline-item h5 {
-        font-weight: 600;
-        color: #fff;
-      }
-      .timeline-item p {
-        color: #e0e0e0;
-      }
-      .timeline-item.left {
-        left: 0;
-        text-align: right;
-      }
-      .timeline-item.right {
-        left: 50%;
-        text-align: left;
-      }
-      .timeline-item.left::after,
-      .timeline-item.right::after {
-        content: "";
-        position: absolute;
-        top: 25px;
-        width: 20px;
-        height: 20px;
-        background: #ffb700;
-        border-radius: 50%;
-        border: 3px solid #fff;
-      }
-      .timeline-item.left::after {
-        right: -10px;
-      }
-      .timeline-item.right::after {
-        left: -10px;
-      }
-      @media (max-width: 992px) {
-        .timeline::before {
-          left: 10px;
-        }
-        .timeline-item {
-          width: 100%;
-          text-align: left !important;
-          padding-left: 50px;
-        }
-        .timeline-item::after {
-          left: 10px !important;
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="body">
@@ -155,7 +50,7 @@
 
           <!-- Mobile Toggle -->
           <button
-            class="navbar-toggler border-0 text-white"
+            class="navbar-toggler border-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -187,17 +82,13 @@
               <!-- Dropdown -->
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle text-uppercase fw-semibold"
-                  href="#services"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                  class="nav-link text-uppercase fw-semibold"
+                  href="./services.html"
                 >
                   Services
                 </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-dark bg-dark border-0 shadow-sm"
+                <!-- <ul
+                  class="dropdown-menu bg-dark border-0 shadow-sm"
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
@@ -238,12 +129,14 @@
                   <li>
                     <a class="dropdown-item text-white" href="#">ZLD Series</a>
                   </li>
-                </ul>
+                </ul> -->
               </li>
 
               <li class="nav-item">
-                <a class="nav-link text-uppercase fw-semibold" href="#faqs"
-                  >Faqs</a
+                <a
+                  class="nav-link text-uppercase fw-semibold"
+                  href="series.html"
+                  >Series</a
                 >
               </li>
               <li class="nav-item">
@@ -255,7 +148,7 @@
               <!-- CTA Button -->
               <li class="nav-item ms-lg-3">
                 <a
-                  href="#"
+                  href="#contact"
                   class="btn btn-warning fw-bold text-uppercase px-3 py-2 rounded-pill"
                 >
                   Get Quote Here →
@@ -268,7 +161,7 @@
 
       <!-- Navbar End -->
       <div class="body-sections">
-        <section class="hero-section hero-style-1 bg-secondary">
+        <section class="hero-section hero-style-1 bg-dark">
           <div class="hero-left-content">
             <p class="hero-welcome-text">WELCOME TO DIGITAL MARBLEX</p>
             <h1 class="hero-title">
@@ -283,24 +176,24 @@
           <div class="hero-right-visuals">
             <div class="layered-images">
               <img
-                src="./imgs/hero-2.jpg"
+                src="./imgs/hero-bg-1.jpg"
                 alt="Layered Image 1"
                 class="secondary-image-1"
               />
               <img
-                src="./imgs/hero-1.jpg"
+                src="./imgs/hero-bg-2.png"
                 alt="Layered Image 2"
                 class="secondary-image-2"
               />
               <img
-                src="./imgs/hero_bg.jpg"
+                src="./imgs/hero-bg-3.jpg"
                 alt="Layered Image 3"
-                class="secondary-image-3"
+                class="secondary-image-1"
               />
               <img
                 src="./imgs/hero-bg2.jpg"
                 alt="Layered Image 4"
-                class="secondary-image-4"
+                class="secondary-image-2"
               />
             </div>
 
@@ -366,23 +259,33 @@
                 ></div>
                 <div
                   class="swatch-circle"
-                  style="background-image: url('./imgs/hero-2.jpg')"
+                  style="
+                    background-image: url('./imgs/series/zljtseries/aqua-gold-mirage.png');
+                  "
                 ></div>
                 <div
                   class="swatch-circle"
-                  style="background-image: url('./imgs/hero_bg.jpg')"
+                  style="
+                    background-image: url('./imgs/series/zljtseries/Auric-Storm.png');
+                  "
                 ></div>
                 <div
                   class="swatch-circle"
-                  style="background-image: url('./imgs/hero-1.jpg')"
+                  style="
+                    background-image: url('./imgs/series/zljtseries/black-blaze-marble.png');
+                  "
                 ></div>
                 <div
                   class="swatch-circle"
-                  style="background-image: url('./imgs/hero-2.jpg')"
+                  style="
+                    background-image: url('./imgs/series/zljtseries/earthcore-charcoal-wave.png');
+                  "
                 ></div>
                 <div
                   class="swatch-circle"
-                  style="background-image: url('./imgs/hero-bg2.jpg')"
+                  style="
+                    background-image: url('./imgs/series/zljtseries/Ivory-Rose-Vein.png');
+                  "
                 ></div>
               </div>
             </div>
@@ -479,17 +382,20 @@
         </section>
         <section class="services-section" id="services">
           <div class="container">
+            <!-- ===== Header ===== -->
             <div
-              class="services-header d-flex justify-content-between align-items-end mb-5"
+              class="services-header d-flex justify-content-between align-items-end mt-5 mb-5 flex-wrap"
             >
-              <div class="services-header-left">
-                <div class="section-tag-small">Our Services</div>
-                <h2 class="section-title-small">What We Offer</h2>
+              <div class="services-header-left mb-3 mb-md-0">
+                <div class="section-tag-small text-warning">Our Services</div>
+                <h2 class="section-title-small text-dark">What We Offer</h2>
               </div>
               <div class="services-header-right">
                 <a href="#contact" class="read-more-btn-dark">Contact Us</a>
               </div>
             </div>
+
+            <!-- ===== Carousel ===== -->
             <div
               id="servicesCarousel"
               class="carousel slide"
@@ -499,126 +405,135 @@
               data-bs-pause="false"
             >
               <div class="carousel-inner">
+                <!-- ===== Slide 1 ===== -->
                 <div class="carousel-item active">
-                  <div class="row justify-content-center">
-                    <div class="col-md-4">
+                  <div class="row justify-content-center g-4">
+                    <div class="col-md-4 col-sm-6">
                       <div class="service-card text-center">
                         <div
                           class="service-image-container position-relative mb-3"
                         >
                           <img
-                            src="./imgs/hero-1.jpg"
-                            class="img-fluid"
+                            src="./imgs/We-Offer-4.png"
+                            class="img-fluid rounded"
                             alt="Premium Marble"
                           />
                           <div class="icon-overlay">
                             <i class="fas fa-gem"></i>
                           </div>
                         </div>
-                        <h3>Premium Marble Supply</h3>
-                        <p class="service-subtitle">
+                        <h3 class="text-dark">Premium Marble Supply</h3>
+                        <p class="service-subtitle text-warning">
                           High-quality marble selection
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-4 col-sm-6">
                       <div class="service-card text-center">
                         <div
                           class="service-image-container position-relative mb-3"
                         >
                           <img
-                            src="./imgs/hero-2.jpg"
-                            class="img-fluid"
+                            src="./imgs/We-Offer-5.png"
+                            class="img-fluid rounded"
                             alt="Custom Installation"
                           />
                           <div class="icon-overlay">
                             <i class="fas fa-tools"></i>
                           </div>
                         </div>
-                        <h3>Custom Installation</h3>
-                        <p class="service-subtitle">
+                        <h3 class="text-dark">Custom Installation</h3>
+                        <p class="service-subtitle text-warning">
                           Expert finishing for all projects
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-4 col-sm-6">
                       <div class="service-card text-center">
                         <div
                           class="service-image-container position-relative mb-3"
                         >
                           <img
-                            src="./imgs/hero-1.jpg"
-                            class="img-fluid"
+                            src="./imgs/We-Offer-6.png"
+                            class="img-fluid rounded"
                             alt="Granite Polishing"
                           />
                           <div class="icon-overlay">
                             <i class="fas fa-shapes"></i>
                           </div>
                         </div>
-                        <h3>Granite Polishing</h3>
-                        <p class="service-subtitle">
+                        <h3 class="text-dark">Granite Polishing</h3>
+                        <p class="service-subtitle text-warning">
                           Enhancing shine and durability
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                <!-- ===== Slide 2 ===== -->
                 <div class="carousel-item">
-                  <div class="row justify-content-center">
-                    <div class="col-md-4">
+                  <div class="row justify-content-center g-4">
+                    <div class="col-md-4 col-sm-6">
                       <div class="service-card text-center">
                         <div
                           class="service-image-container position-relative mb-3"
                         >
                           <img
-                            src="./imgs/hero-2.jpg"
-                            class="img-fluid"
+                            src="./imgs/We-Offer-4.png"
+                            class="img-fluid rounded"
                             alt="Architectural Design"
                           />
                           <div class="icon-overlay">
                             <i class="fas fa-ruler-combined"></i>
                           </div>
                         </div>
-                        <h3>Architectural Design</h3>
-                        <p class="service-subtitle">
+                        <h3 class="text-dark">Architectural Design</h3>
+                        <p class="service-subtitle text-warning">
                           Beautiful custom structures
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-4 col-sm-6">
                       <div class="service-card text-center">
                         <div
                           class="service-image-container position-relative mb-3"
                         >
                           <img
-                            src="./imgs/hero-1.jpg"
-                            class="img-fluid"
+                            src="./imgs/We-Offer-2.png"
+                            class="img-fluid rounded"
                             alt="Surface Maintenance"
                           />
                           <div class="icon-overlay">
                             <i class="fas fa-brush"></i>
                           </div>
                         </div>
-                        <h3>Surface Maintenance</h3>
-                        <p class="service-subtitle">Long-lasting finish care</p>
+                        <h3 class="text-dark">Surface Maintenance</h3>
+                        <p class="service-subtitle text-warning">
+                          Long-lasting finish care
+                        </p>
                       </div>
                     </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-4 col-sm-6">
                       <div class="service-card text-center">
                         <div
                           class="service-image-container position-relative mb-3"
                         >
                           <img
-                            src="./imgs/hero-2.jpg"
-                            class="img-fluid"
+                            src="./imgs/We-Offer-3.png"
+                            class="img-fluid rounded"
                             alt="Restoration Work"
                           />
                           <div class="icon-overlay">
                             <i class="fas fa-hammer"></i>
                           </div>
                         </div>
-                        <h3>Restoration Work</h3>
-                        <p class="service-subtitle">
+                        <h3 class="text-dark">Restoration Work</h3>
+                        <p class="service-subtitle text-warning">
                           Bringing old surfaces to life
                         </p>
                       </div>
@@ -626,6 +541,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- ===== Carousel Controls ===== -->
               <button
                 class="carousel-control-prev"
                 type="button"
@@ -636,6 +553,7 @@
                   class="carousel-control-prev-icon"
                   aria-hidden="true"
                 ></span>
+                <span class="visually-hidden">Previous</span>
               </button>
               <button
                 class="carousel-control-next"
@@ -647,10 +565,13 @@
                   class="carousel-control-next-icon"
                   aria-hidden="true"
                 ></span>
+                <span class="visually-hidden">Next</span>
               </button>
             </div>
           </div>
         </section>
+
+        <!-- ===== Flooring Section ===== -->
         <section class="flooring-section text-white d-flex align-items-center">
           <div class="container position-relative z-2">
             <div
@@ -661,6 +582,7 @@
               </h2>
               <a href="#" class="btn-view-more text-white">VIEW MORE</a>
             </div>
+
             <div class="row g-4">
               <div class="col-md-6 col-lg-3">
                 <div
@@ -677,6 +599,7 @@
                   <a href="#" class="btn-view-more text-warning">Learn More</a>
                 </div>
               </div>
+
               <div class="col-md-6 col-lg-3">
                 <div
                   class="flooring-service-card bg-dark bg-opacity-75 p-4 rounded-3"
@@ -692,6 +615,7 @@
                   <a href="#" class="btn-view-more text-warning">Learn More</a>
                 </div>
               </div>
+
               <div class="col-md-6 col-lg-3">
                 <div
                   class="flooring-service-card bg-dark bg-opacity-75 p-4 rounded-3"
@@ -707,6 +631,7 @@
                   <a href="#" class="btn-view-more text-warning">Learn More</a>
                 </div>
               </div>
+
               <div class="col-md-6 col-lg-3">
                 <div
                   class="flooring-service-card bg-dark bg-opacity-75 p-4 rounded-3"
@@ -725,6 +650,8 @@
             </div>
           </div>
         </section>
+
+        <!-- ===== Flooring Gallery Section ===== -->
         <section class="flooring-gallery-section position-relative">
           <div class="container position-relative">
             <div
@@ -736,54 +663,96 @@
               data-bs-pause="false"
             >
               <div class="carousel-inner">
+                <!-- Slide 1 -->
                 <div class="carousel-item active">
                   <div class="row gx-3">
                     <div class="col-12 col-md-6 col-lg-4">
                       <div
                         class="image-card"
-                        style="background-image: url('./imgs/hero-1.jpg')"
+                        style="
+                          background-image: url('./imgs/provide-imgs/1.jpg');
+                        "
                       ></div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                       <div
                         class="image-card"
-                        style="background-image: url('./imgs/hero-2.jpg')"
+                        style="
+                          background-image: url('./imgs/provide-imgs/2.jpg');
+                        "
                       ></div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                       <div
                         class="image-card"
-                        style="background-image: url('./imgs/hero-1.jpg')"
+                        style="
+                          background-image: url('./imgs/provide-imgs/3.jpg');
+                        "
                       ></div>
                     </div>
                   </div>
                 </div>
+
+                <!-- Slide 2 -->
                 <div class="carousel-item">
                   <div class="row gx-3">
                     <div class="col-12 col-md-6 col-lg-4">
                       <div
                         class="image-card"
-                        style="background-image: url('./imgs/hero-1.jpg')"
+                        style="
+                          background-image: url('./imgs/provide-imgs/4.jpg');
+                        "
                       ></div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                       <div
                         class="image-card"
-                        style="background-image: url('./imgs/hero-2.jpg')"
+                        style="
+                          background-image: url('./imgs/provide-imgs/5.jpg');
+                        "
                       ></div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4">
                       <div
                         class="image-card"
-                        style="background-image: url('./imgs/hero-1.jpg')"
+                        style="
+                          background-image: url('./imgs/provide-imgs/6.jpg');
+                        "
                       ></div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Carousel Controls -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#flooringGalleryCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#flooringGalleryCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
           </div>
         </section>
+
         <section class="f-series text-center">
           <div class="container">
             <!-- Header -->
@@ -794,7 +763,7 @@
               </div>
               <div class="col-lg-6">
                 <img
-                  src="https://images.unsplash.com/photo-1600566753151-384129cf4e3d?auto=format&fit=crop&w=1000&q=80"
+                  src="./imgs/hero-bg-1.jpg"
                   alt="F Series Interior"
                   class="img-fluid rounded shadow-sm"
                 />
@@ -1092,7 +1061,7 @@
             <div class="row align-items-center g-4">
               <div class="col-md-5">
                 <img
-                  src="./imgs/hero-1.jpg"
+                  src="./imgs/faq-bg.png"
                   alt="Marble Slab"
                   class="faq-image w-100"
                 />
@@ -1107,6 +1076,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-md-7">
                 <h5
                   class="section-title text-uppercase"
@@ -1114,7 +1084,8 @@
                 >
                   Common Queries
                 </h5>
-                <h2 class="text-dark">Asked Questions ?</h2>
+                <h2 class="text-dark mb-4">Asked Questions ?</h2>
+
                 <div class="accordion" id="marbleFAQs">
                   <div class="accordion-item border-0">
                     <h2 class="accordion-header">
@@ -1142,6 +1113,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="accordion-item border-0">
                     <h2 class="accordion-header">
                       <button
@@ -1167,6 +1139,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="accordion-item border-0">
                     <h2 class="accordion-header">
                       <button
@@ -1192,6 +1165,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="accordion-item border-0">
                     <h2 class="accordion-header">
                       <button
@@ -1224,6 +1198,7 @@
             </div>
           </div>
         </section>
+
         <!-- Contact Us Section -->
         <section id="contact" class="contact-section py-5 bg-light">
           <div class="container" data-aos="fade-up">
@@ -1242,16 +1217,18 @@
                 <div class="contact-info p-4 bg-white shadow rounded-4">
                   <h5 class="fw-bold mb-3 text-dark">Our Office</h5>
                   <p class="text-dark">
-                    <i class="bi bi-geo-alt-fill text-muted me-2"></i> 123
-                    Marblex Street, Hyderabad, India
+                    <i class="bi bi-geo-alt-fill text-muted me-2"></i>
+                    H. No.5-3/1/78, Road No-5, Padmavathi Colony Phase-II, Near
+                    ZPHS School, Boduppal, Medipalli (Mandal),
+                    Medchal-Malkajgiri (Dist)-500092.
                   </p>
                   <p class="text-dark">
                     <i class="bi bi-envelope-fill text-muted me-2"></i>
-                    info@marblex.com
+                    bpht_entp@outlook.com
                   </p>
                   <p class="text-dark">
-                    <i class="bi bi-telephone-fill text-muted me-2"></i> +91
-                    98765 43210
+                    <i class="bi bi-telephone-fill text-muted me-2"></i>
+                    +91 8328057958, +91 8555941169
                   </p>
                   <div class="social-icons mt-4">
                     <a href="#" class="me-3 text-dark fs-5"
@@ -1271,11 +1248,17 @@
               </div>
               <!-- Contact Form -->
               <div class="col-lg-7" data-aos="fade-left">
-                <form class="contact-form p-4 bg-white shadow rounded-4">
+                <form
+                  id="contactForm"
+                  class="contact-form p-4 bg-white shadow rounded-4"
+                  action="./php/contact.php"
+                  method="POST"
+                >
                   <div class="row g-3">
                     <div class="col-md-6">
                       <input
                         type="text"
+                        name="name"
                         class="form-control"
                         placeholder="Your Name"
                         required
@@ -1284,6 +1267,7 @@
                     <div class="col-md-6">
                       <input
                         type="email"
+                        name="email"
                         class="form-control"
                         placeholder="Your Email"
                         required
@@ -1292,6 +1276,7 @@
                     <div class="col-md-6">
                       <input
                         type="text"
+                        name="subject"
                         class="form-control"
                         placeholder="Subject"
                       />
@@ -1299,12 +1284,14 @@
                     <div class="col-md-6">
                       <input
                         type="tel"
+                        name="phone"
                         class="form-control"
                         placeholder="Phone"
                       />
                     </div>
                     <div class="col-12">
                       <textarea
+                        name="message"
                         class="form-control"
                         rows="4"
                         placeholder="Your Message"
@@ -1342,47 +1329,41 @@
                   />
                 </a>
                 <p class="mb-4 small">
-                  Vestibulum ante ipsum primis in faucibus orci luctus et
-                  ultrices posuere cubilia curae. Donec velit neque auctor sit
-                  amet aliquam vel ullamcorper sit amet ligula.
+                  Polystones / BPHT Enterprises, based in Hyderabad, blends
+                  nature’s artistry with modern engineering to deliver premium,
+                  versatile marble sheets. Focused on luxury, quality, and
+                  perfection — we help transform inspiration into extraordinary
+                  spaces.
                 </p>
               </div>
 
               <!-- ======== Company Links ======== -->
               <div class="col-lg-2 col-6">
-                <h5 class="fw-semibold mb-3">Company</h5>
+                <h5 class="fw-semibold mb-3 text-warning">Company</h5>
                 <ul class="list-unstyled small">
                   <li>
-                    <a
-                      href="#"
-                      class="text-decoration-none text-light d-block mb-2"
-                      ><i class="bi bi-chevron-right"></i> About</a
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> About Us</a
                     >
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      class="text-decoration-none text-light d-block mb-2"
-                      ><i class="bi bi-chevron-right"></i> Careers</a
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Our Products</a
                     >
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      class="text-decoration-none text-light d-block mb-2"
-                      ><i class="bi bi-chevron-right"></i> Press</a
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Projects</a
                     >
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      class="text-decoration-none text-light d-block mb-2"
-                      ><i class="bi bi-chevron-right"></i> Blog</a
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Gallery</a
                     >
                   </li>
                   <li>
-                    <a href="#" class="text-decoration-none text-light"
-                      ><i class="bi bi-chevron-right"></i> Contact</a
+                    <a href="#" class="footer-link"
+                      ><i class="bi bi-chevron-right"></i> Contact Us</a
                     >
                   </li>
                 </ul>
@@ -1390,16 +1371,15 @@
 
               <!-- ======== Get in Touch ======== -->
               <div class="col-lg-3">
-                <h5 class="fw-semibold mb-3">Get in Touch</h5>
+                <h5 class="fw-semibold mb-3 text-warning">Get in Touch</h5>
                 <ul class="list-unstyled small mb-4">
                   <li class="d-flex mb-2">
                     <i class="bi bi-geo-alt text-warning me-2"></i>
                     <span
-                      ><strong>Office Address:</strong> H. No.5-3/1/78, 
-                        Road No-5, Padmavathi Colony Phase-II,
-                        Near ZPHS School, Boduppal, 
-                        Medipalli (Mandal), 
-                        Medchal-Malkajgiri (Dist)-500092.</span
+                      ><strong>Office Address:</strong> H. No.5-3/1/78, Road
+                      No-5, Padmavathi Colony Phase-II, Near ZPHS School,
+                      Boduppal, Medipalli (Mandal), Medchal-Malkajgiri
+                      (Dist)-500092.</span
                     >
                   </li>
                   <li class="d-flex mb-2">
@@ -1414,19 +1394,19 @@
 
                 <!-- Social Icons -->
                 <div class="d-flex gap-3">
-                  <a href="#" class="text-light fs-5"
+                  <a href="#" class="social-link"
                     ><i class="bi bi-facebook"></i
                   ></a>
-                  <a href="#" class="text-light fs-5"
+                  <a href="#" class="social-link"
                     ><i class="bi bi-twitter-x"></i
                   ></a>
-                  <a href="#" class="text-light fs-5"
+                  <a href="#" class="social-link"
                     ><i class="bi bi-linkedin"></i
                   ></a>
-                  <a href="#" class="text-light fs-5"
+                  <a href="#" class="social-link"
                     ><i class="bi bi-youtube"></i
                   ></a>
-                  <a href="#" class="text-light fs-5"
+                  <a href="#" class="social-link"
                     ><i class="bi bi-github"></i
                   ></a>
                 </div>
@@ -1434,7 +1414,7 @@
 
               <!-- ======== Stay Updated (Newsletter) ======== -->
               <div class="col-lg-3">
-                <h5 class="fw-semibold mb-3">Stay Updated</h5>
+                <h5 class="fw-semibold mb-3 text-warning">Stay Updated</h5>
                 <form
                   action="forms/newsletter.php"
                   method="post"
@@ -1459,9 +1439,7 @@
                     Loading
                   </div>
                   <div class="error-message text-danger mt-2"></div>
-                  <div class="sent-message text-success mt-2">
-                    Thank you for subscribing!
-                  </div>
+                  <div class="sent-message text-success mt-2"></div>
                 </form>
               </div>
             </div>
@@ -1474,53 +1452,35 @@
                 <div class="col-lg-6 mb-3 mb-lg-0">
                   <p class="mb-0 small">
                     © <span>Copyright</span>
-                    <strong class="text-warning"> BPHT ENTERPRISES</strong> All Rights
-                    Reserved
+                    <strong class="text-warning"> BPHT ENTERPRISES</strong> All
+                    Rights Reserved
                   </p>
                 </div>
                 <div class="col-lg-6">
                   <div
                     class="d-flex justify-content-center justify-content-lg-end gap-3 small mb-2"
                   >
-                    <a href="#" class="text-light text-decoration-none"
-                      >Privacy Policy</a
-                    >
-                    <a href="#" class="text-light text-decoration-none"
-                      >Terms of Service</a
-                    >
-                    <a href="#" class="text-light text-decoration-none"
-                      >Cookie Policy</a
-                    >
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Cookie Policy</a>
                   </div>
-                  <!-- <p class="small text-secondary mb-0">
-                    Designed by
-                    <a href="#" class="text-warning text-decoration-none"
-                      > BPHT ENTERPRISES</a
-                    >
-                  </p> -->
                 </div>
               </div>
             </div>
           </div>
         </footer>
       </div>
-      <!-- Bootstrap JS Bundle -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-      <!-- Custom JS -->
-      <script src="./js/script.js"></script>
-      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-      <!-- AOS Animation Library -->
+
       <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      <script src="./js/script.js"></script>
+      <!-- ✅ EmailJS CDN -->
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
       <script>
         AOS.init({ duration: 1000, once: true });
-      </script>
-      <script>
-        AOS.init({
-          duration: 1000,
-          once: true,
-        });
       </script>
     </div>
   </body>

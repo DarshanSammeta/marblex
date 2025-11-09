@@ -11,8 +11,8 @@ html, body {
   .color-choose-section .container,
   .services-section .container,
   .services .container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   /* Prevent oversized text from causing overflow */
@@ -23,17 +23,17 @@ html, body {
 
   /* Tighten up vertical spacing */
   .section-title {
-    font-size: 28px !important;
-    margin-bottom: 15px !important;
+    font-size: 1.75rem;
+    margin-bottom: 15px;
   }
 
   .section-description {
-    font-size: 14px !important;
-    line-height: 1.5 !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .features-list li {
-    font-size: 14px !important;
+    font-size: 0.9rem;
   }
 
   /* Ensure CTA and buttons don’t overflow */
@@ -43,8 +43,8 @@ html, body {
   .btn-view-more {
     width: 100%;
     justify-content: center;
-    padding: 12px 20px !important;
-    font-size: 14px !important;
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 }
 
@@ -52,137 +52,273 @@ html, body {
 @media (max-width: 768px) {
   .hero-section,
   .hero-section.hero-style-1 {
-    padding-top: 80px !important; /* Account for fixed navbar height */
+    padding-top: 80px; /* Account for fixed navbar height */
   }
 
-  .hero-left-content,
-  .hero-left-content.hero-style-1 {
-    padding: 0 10px !important;
+  .hero-left-content {
+    padding: 0 15px;
   }
 
-  .hero-title,
-  .hero-title.hero-style-1 {
-    font-size: 28px !important;
-    margin-bottom: 20px !important;
+  .hero-title {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
   }
 
-  .hero-welcome-text,
-  .hero-welcome-text.hero-style-1 {
-    font-size: 12px !important;
-    letter-spacing: 1px !important;
+  .hero-welcome-text {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-right-visuals img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .slider-nav-dots {
+    margin-top: 15px;
   }
 }
 
 /* ===================== SERVICES SECTION MOBILE FIXES ===================== */
 @media (max-width: 576px) {
   .service-card {
-    padding: 15px !important;
+    padding: 15px;
   }
 
   .service-card h3 {
-    font-size: 18px !important;
+    font-size: 1.125rem;
   }
 
   .service-description {
-    font-size: 14px !important;
+    font-size: 0.9rem;
   }
 
   /* Ensure icon overlay doesn’t overflow */
   .icon-overlay {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 18px !important;
-    bottom: -30px !important;
+    width: 50px;
+    height: 50px;
+    font-size: 1.125rem;
+    bottom: -30px;
+  }
+}
+
+/* =====================  About Section ===================== */
+@media (max-width: 992px) {
+  .color-choose-section .container {
+    flex-direction: column;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .content-left {
+    flex-basis: 100%;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-description {
+    font-size: 15px;
+  }
+
+  .features-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .read-more-btn-dark {
+    margin-top: 10px;
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+
+  .content-right {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .marble-swatches {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .swatch-circle {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 24px;
+  }
+
+  .marble-swatches {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .swatch-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .features-list li {
+    font-size: 14px;
+  }
+}
+
+
+/* =====================ABout Product ===================== */
+@media (max-width: 992px) {
+  .about-product {
+    padding: 70px 20px;
+    background-attachment: scroll; /* fixed bg issue on mobile */
+    text-align: center;
+  }
+
+  .timeline::before {
+    left: 10px;
+    transform: none;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left !important;
+    padding-left: 50px;
+    margin-bottom: 30px;
+  }
+
+  .timeline-item::after {
+    left: 10px !important;
+    right: auto;
+  }
+
+  .timeline-item h4 {
+    font-size: 1.3rem;
+  }
+
+  .timeline-item p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ✅ Extra small screens */
+@media (max-width: 576px) {
+  .about-product {
+    padding: 60px 15px;
+  }
+
+  .timeline-item {
+    padding-left: 40px;
+  }
+
+  .timeline-item::after {
+    width: 15px;
+    height: 15px;
+    top: 18px;
   }
 }
 
 /* ===================== FLOORING & FAQ MOBILE FIXES ===================== */
 @media (max-width: 576px) {
   .flooring-section {
-    min-height: auto !important;
-    padding: 60px 15px !important;
+    min-height: auto;
+    padding: 60px 15px;
   }
 
   .flooring-service-card {
-    padding: 20px !important;
+    padding: 20px;
   }
 
   .service-icon-wrapper {
-    width: 50px !important;
-    height: 50px !important;
-    margin-bottom: 15px !important;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
   }
 
   .service-icon-wrapper i {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
 
   .btn-view-more {
-    padding: 8px 16px !important;
-    font-size: 13px !important;
+    padding: 8px 16px;
+    font-size: 0.8rem;
   }
 
   /* FAQ Accordion Padding Fix */
   .accordion-button,
   .accordion-body {
-    padding: 12px 15px !important;
-    font-size: 0.9rem !important;
+    padding: 12px 15px;
+    font-size: 0.9rem;
   }
 }
 
-/* ===================== NAVBAR MOBILE ENHANCEMENTS ===================== */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 10px 15px !important;
+/* =====================f-series===================== */
+@media (max-width: 992px) {
+  .f-series {
+    padding: 60px 0;
   }
 
-  .logo {
-    font-size: 18px !important;
+  .f-series h2 {
+    font-size: 2rem;
   }
 
-  .logo-icon {
-    width: 20px !important;
-    height: 20px !important;
+  .f-series h4 {
+    font-size: 1.1rem;
   }
 
-  .nav-link {
-    font-size: 15px !important;
-    padding: 10px 15px !important;
+  .f-series img {
+    margin-top: 20px;
   }
 
-  /* Ensure dropdowns don’t cause overflow */
-  .dropdown-menu {
-    position: static !important;
-    background-color: #1a1c20 !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-
-  .dropdown-menu li a {
-    font-size: 14px !important;
-    padding: 8px 15px !important;
+  .color-box {
+    height: 100px;
   }
 }
 
+@media (max-width: 576px) {
+  .f-series h2 {
+    font-size: 1.6rem;
+  }
+
+  .f-series h4 {
+    font-size: 1rem;
+  }
+
+  .color-box {
+    height: 90px;
+  }
+
+  .color-info p {
+    font-size: 0.85rem;
+  }
+}
 /* ===================== FINISH SLIDER MOBILE FIX ===================== */
 @media (max-width: 576px) {
   .finish-slider {
-    padding: 80px 10px !important;
+    padding: 80px 10px;
   }
 
   .finish-title {
-    font-size: 2rem !important;
-    margin-bottom: 25px !important;
+    font-size: 2rem;
+    margin-bottom: 25px;
   }
 
   .finish-card {
-    width: 95% !important;
-    height: 130px !important;
-    font-size: 13px !important;
+    width: 95%;
+    height: 130px;
+    font-size: 0.8rem;
   }
 
   .finish-controls button {
-    padding: 6px 12px !important;
-    font-size: 1.2rem !important;
+    padding: 6px 12px;
+    font-size: 1.2rem;
   }
 }
